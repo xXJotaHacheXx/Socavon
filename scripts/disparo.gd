@@ -1,8 +1,12 @@
 extends RayCast3D
 
+signal municion_cambiada(actual: int, maxima: int)
+
 @export var dano := 20.0
 @export var cadencia := 0.45
 @export var retroceso := 0.08
+@export var municion_maxima := 48
+
 
 var listo := true
 
@@ -10,19 +14,23 @@ var listo := true
 @onready var jugador: CharacterBody3D = camara.get_parent()
 @onready var fogonazo: OmniLight3D = $Fogonazo
 
+var municion := 48
 
 func _ready() -> void:
 	add_exception(jugador)
 	fogonazo.visible = false
+	municion = municion_maxima
 
 
 func _physics_process(_delta: float) -> void:
-	if listo and Input.is_action_pressed("disparar"):
+	if listo and municion > 0 and Input.is_action_pressed("disparar"):
 		_disparar()
 
 
 func _disparar() -> void:
 	listo = false
+	municion -= 1
+	municion_cambiada.emit(municion, municion_maxima)
 
 	camara.position.z = retroceso
 	create_tween().tween_property(camara, "position:z", 0.0, 0.12)

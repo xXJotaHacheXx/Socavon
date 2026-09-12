@@ -1,5 +1,9 @@
 extends CharacterBody3D
 
+signal salud_cambiada(actual: float, maxima: float)
+signal armadura_cambiada(actual: float)
+
+@export var armadura_inicial := 75.0
 @export var velocidad_caminar := 6.0
 @export var velocidad_correr := 9.5
 @export var sensibilidad := 0.0025
@@ -11,6 +15,7 @@ extends CharacterBody3D
 
 var vida := 100.0
 var estamina := 100.0
+var armadura := 0.0
 var tiempo_balanceo := 0.0
 var camara_y := 0.0
 
@@ -21,6 +26,7 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	camara_y = camara.position.y
 	vida = vida_maxima
+	armadura = armadura_inicial
 
 
 func _unhandled_input(evento: InputEvent) -> void:
@@ -76,8 +82,14 @@ func _balanceo(delta: float) -> void:
 		camara.position.x = lerp(camara.position.x, 0.0, delta * 10.0)
 
 func recibir_dano(cantidad: float) -> void:
+	if armadura > 0.0:
+		var absorbido: float = min(cantidad * 0.33, armadura)
+		armadura -= absorbido
+		cantidad -= absorbido
+		armadura_cambiada.emit(armadura)
+
 	vida -= cantidad
-	print("Vida del jugador: ", vida)
+	salud_cambiada.emit(vida, vida_maxima)
 
 	destello.color.a = 0.45
 	create_tween().tween_property(destello, "color:a", 0.0, 0.25)

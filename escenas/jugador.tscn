@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bcu1lfgwq6tic" path="res://scripts/movimiento.gd" id="1_tml57"]
 [ext_resource type="Script" uid="uid://b1ulsu68lgpjm" path="res://scripts/disparo.gd" id="2_jpodt"]
+[ext_resource type="Script" uid="uid://d06ldto013rik" path="res://scripts/hud.gd" id="3_njcx7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cg8h7"]
 radius = 0.4
@@ -28,6 +29,7 @@ light_energy = 4.0
 omni_range = 6.0
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=2107753356]
+script = ExtResource("3_njcx7")
 
 [node name="Label" type="Label" parent="HUD" unique_id=1309283211]
 anchors_preset = 8
@@ -48,7 +50,70 @@ text = "+"
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(1, 0, 0.12941177, 0)
+
+[node name="Placa" type="PanelContainer" parent="HUD" unique_id=1788979559]
+custom_minimum_size = Vector2(0, 90)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Stats" type="HBoxContainer" parent="HUD/Placa" unique_id=679647424]
+layout_mode = 2
+theme_override_constants/separation = 70
+alignment = 1
+
+[node name="Armadura" type="VBoxContainer" parent="HUD/Placa/Stats" unique_id=524015218]
+layout_mode = 2
+alignment = 1
+
+[node name="Titulo" type="Label" parent="HUD/Placa/Stats/Armadura" unique_id=2145111444]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "ARMADURA"
+horizontal_alignment = 1
+
+[node name="Valor" type="Label" parent="HUD/Placa/Stats/Armadura" unique_id=126548543]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "100%"
+
+[node name="Salud" type="VBoxContainer" parent="HUD/Placa/Stats" unique_id=2104728753]
+layout_mode = 2
+alignment = 1
+
+[node name="Titulo" type="Label" parent="HUD/Placa/Stats/Salud" unique_id=1303892655]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "SALUD"
+horizontal_alignment = 1
+
+[node name="Valor" type="Label" parent="HUD/Placa/Stats/Salud" unique_id=282880741]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "100%"
+
+[node name="Municion" type="VBoxContainer" parent="HUD/Placa/Stats" unique_id=847130920]
+layout_mode = 2
+alignment = 1
+
+[node name="Titulo" type="Label" parent="HUD/Placa/Stats/Municion" unique_id=1178685157]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "MUNICION"
+horizontal_alignment = 1
+
+[node name="Valor" type="Label" parent="HUD/Placa/Stats/Municion" unique_id=830783357]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "100%"
