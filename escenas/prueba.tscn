@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://duuqoc7adpyi8"]
 
 [ext_resource type="PackedScene" uid="uid://bj7n5u2bfpyiq" path="res://escenas/jugador.tscn" id="1_bfths"]
+[ext_resource type="Script" uid="uid://ciqa56cv0u5kc" path="res://scripts/blanco.gd" id="2_2jt68"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_cg8h7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_whjgx"]
 
 [node name="Prueba" type="Node3D" unique_id=669747661]
 
@@ -24,3 +29,14 @@ transform = Transform3D(0.8660254, 0.35355338, -0.35355338, 0, 0.70710677, 0.707
 
 [node name="Jugador" parent="." unique_id=2024137595 instance=ExtResource("1_bfths")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.883, -1, 5.804)
+
+[node name="Blanco" type="StaticBody3D" parent="." unique_id=38723292]
+script = ExtResource("2_2jt68")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blanco" unique_id=294476812]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("BoxMesh_cg8h7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blanco" unique_id=624482905]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_whjgx")
