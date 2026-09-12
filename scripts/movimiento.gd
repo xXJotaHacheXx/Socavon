@@ -3,7 +3,7 @@ extends CharacterBody3D
 signal salud_cambiada(actual: float, maxima: float)
 signal armadura_cambiada(actual: float)
 
-@export var armadura_inicial := 75.0
+@export var armadura_inicial := 50.0
 @export var velocidad_caminar := 6.0
 @export var velocidad_correr := 9.5
 @export var sensibilidad := 0.0025
@@ -83,14 +83,16 @@ func _balanceo(delta: float) -> void:
 
 func recibir_dano(cantidad: float) -> void:
 	if armadura > 0.0:
-		var absorbido: float = min(cantidad * 0.33, armadura)
+		var absorbido: float = min(cantidad, armadura)
 		armadura -= absorbido
 		cantidad -= absorbido
 		armadura_cambiada.emit(armadura)
 
-	vida -= cantidad
-	salud_cambiada.emit(vida, vida_maxima)
+	if cantidad > 0.0:
+		vida -= cantidad
+		salud_cambiada.emit(vida, vida_maxima)
 
+	destello.color = Color(0.2, 0.5, 1.0) if armadura > 0.0 else Color(1.0, 0.0, 0.13)
 	destello.color.a = 0.45
 	create_tween().tween_property(destello, "color:a", 0.0, 0.25)
 
