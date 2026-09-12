@@ -3,22 +3,24 @@ extends CharacterBody3D
 @export var velocidad_caminar := 6.0
 @export var velocidad_correr := 9.5
 @export var sensibilidad := 0.0025
-
+@export var vida_maxima := 100.0
 @export var aceleracion := 45.0
 @export var friccion := 60.0
 @export var balanceo_fuerza := 0.06
 @export var balanceo_ritmo := 12.0
 
+var vida := 100.0
 var estamina := 100.0
 var tiempo_balanceo := 0.0
 var camara_y := 0.0
 
 @onready var camara: Camera3D = $Camera3D
-
+@onready var destello: ColorRect = $HUD/Dano
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	camara_y = camara.position.y
+	vida = vida_maxima
 
 
 func _unhandled_input(evento: InputEvent) -> void:
@@ -72,3 +74,13 @@ func _balanceo(delta: float) -> void:
 		tiempo_balanceo = 0.0
 		camara.position.y = lerp(camara.position.y, camara_y, delta * 10.0)
 		camara.position.x = lerp(camara.position.x, 0.0, delta * 10.0)
+
+func recibir_dano(cantidad: float) -> void:
+	vida -= cantidad
+	print("Vida del jugador: ", vida)
+
+	destello.color.a = 0.45
+	create_tween().tween_property(destello, "color:a", 0.0, 0.25)
+
+	if vida <= 0.0:
+		get_tree().reload_current_scene()

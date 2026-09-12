@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://ptbu42m5anjk"]
+
+[ext_resource type="Script" uid="uid://j025snewab0h" path="res://scripts/barretero.gd" id="1_luhem"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cg8h7"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_cg8h7"]
+size = Vector3(0.8, 1.8, 0.45)
+
+[node name="Barretero" type="CharacterBody3D" unique_id=1066758173]
+script = ExtResource("1_luhem")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1028749252]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_cg8h7")
+
+[node name="Cuerpo" type="MeshInstance3D" parent="." unique_id=1057062020]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+mesh = SubResource("BoxMesh_cg8h7")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1577971917]
