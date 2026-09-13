@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://he53hi2i6bkt"]
+
+[ext_resource type="Script" uid="uid://bcn8kx1c3o0sl" path="res://scripts/partida.gd" id="1_0li1g"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_cg8h7"]
+size = Vector3(3, 3.2, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_whjgx"]
+size = Vector3(3, 3.2, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cg8h7"]
+size = Vector3(4, 3.2, 3)
+
+[node name="Puerta" type="StaticBody3D" unique_id=476976444]
+script = ExtResource("1_0li1g")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=218066292]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+mesh = SubResource("BoxMesh_cg8h7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1002675994]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+shape = SubResource("BoxShape3D_whjgx")
+
+[node name="Zona" type="Area3D" parent="." unique_id=2052876801]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Zona" unique_id=299940869]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+shape = SubResource("BoxShape3D_cg8h7")

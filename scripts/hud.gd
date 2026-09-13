@@ -1,5 +1,13 @@
 extends CanvasLayer
 
+const APAGADO := Color(0.16, 0.13, 0.11)
+const ESTANO := Color(0.18, 0.42, 0.55)
+const COBRE := Color(0.77, 0.27, 0.12)
+
+@onready var aviso: Label = $Aviso
+@onready var ficha_estano: ColorRect = $Placa/Stats/Fichas/Iconos/Estano
+@onready var ficha_cobre: ColorRect = $Placa/Stats/Fichas/Iconos/Cobre
+
 @onready var jugador: CharacterBody3D = get_parent()
 @onready var arma: RayCast3D = jugador.get_node("Camera3D/RayoDisparo")
 
@@ -16,6 +24,13 @@ func _ready() -> void:
 	_al_cambiar_salud(jugador.vida_maxima, jugador.vida_maxima)
 	_al_cambiar_armadura(jugador.armadura_inicial)
 	_al_cambiar_municion(arma.municion_maxima, arma.municion_maxima)
+	
+	Partida.ficha_obtenida.connect(_encender_ficha)
+	Partida.aviso.connect(mostrar_aviso)
+
+	ficha_estano.color = APAGADO
+	ficha_cobre.color = APAGADO
+	aviso.modulate.a = 0.0
 
 
 func _al_cambiar_salud(actual: float, maxima: float) -> void:
@@ -37,3 +52,19 @@ func _al_cambiar_municion(actual: int, maxima: int) -> void:
 		municion.modulate = Color(1.0, 0.25, 0.2)
 	else:
 		municion.modulate = Color(0.88, 0.63, 0.23)
+
+
+func _encender_ficha(cual: String) -> void:
+	if cual == "estano":
+		ficha_estano.color = ESTANO
+	else:
+		ficha_cobre.color = COBRE
+
+
+func mostrar_aviso(texto: String) -> void:
+	aviso.text = texto
+	aviso.modulate.a = 1.0
+
+	var t := create_tween()
+	t.tween_interval(1.4)
+	t.tween_property(aviso, "modulate:a", 0.0, 0.5)

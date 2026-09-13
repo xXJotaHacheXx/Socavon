@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://bj7n5u2bfpyiq" path="res://escenas/jugador.tscn" id="1_bfths"]
 [ext_resource type="Script" uid="uid://ciqa56cv0u5kc" path="res://scripts/blanco.gd" id="2_2jt68"]
 [ext_resource type="PackedScene" uid="uid://ptbu42m5anjk" path="res://escenas/barretero.tscn" id="3_mdukl"]
+[ext_resource type="PackedScene" uid="uid://hv2muokpk4v" path="res://escenas/ficha.tscn" id="4_8nejv"]
+[ext_resource type="PackedScene" uid="uid://he53hi2i6bkt" path="res://escenas/puerta.tscn" id="5_e5wxq"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_cg8h7"]
 vertices = PackedVector3Array(-9.420843, -0.59780455, -7.6428213, -9.420843, -0.59780455, 8.857179, 9.579157, -0.59780455, 8.857179, 9.579157, -0.59780455, -7.6428213)
@@ -54,3 +56,9 @@ size = Vector3(20, 4, 1)
 
 [node name="Barretero" parent="." unique_id=1066758173 instance=ExtResource("3_mdukl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -1, -5)
+
+[node name="Ficha" parent="." unique_id=2067859008 instance=ExtResource("4_8nejv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.0178843, -1.0426359, -5.549494)
+
+[node name="Puerta" parent="." unique_id=476976444 instance=ExtResource("5_e5wxq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4550295, -1.0426378, 5.093611)
