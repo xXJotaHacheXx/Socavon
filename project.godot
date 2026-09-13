@@ -21,8 +21,13 @@ Partida="*uid://bcn8kx1c3o0sl"
 
 [display]
 
-window/stretch/mode="canvas_items"
+window/size/viewport_width=640
+window/size/viewport_height=360
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+window/stretch/scale_mode="integer"
 
 [input]
 
@@ -63,4 +68,5 @@ disparar={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"

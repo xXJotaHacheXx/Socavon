@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dbpnmw4pxdyso"]
 
 [ext_resource type="Script" uid="uid://dfu2856kqg0nw" path="res://scripts/nivel.gd" id="1_v7j7s"]
+[ext_resource type="Shader" uid="uid://jvuwv2fxgrpf" path="res://assets/retro.gdshader" id="2_kkmol"]
 [ext_resource type="PackedScene" uid="uid://bj7n5u2bfpyiq" path="res://escenas/jugador.tscn" id="2_w1egi"]
 [ext_resource type="PackedScene" uid="uid://ptbu42m5anjk" path="res://escenas/barretero.tscn" id="3_kkmol"]
 [ext_resource type="PackedScene" uid="uid://hv2muokpk4v" path="res://escenas/ficha.tscn" id="4_orta5"]
@@ -15,11 +16,20 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Arr
 geometry_parsed_geometry_type = 1
 agent_height = 1.8
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kkmol"]
+render_priority = 0
+shader = ExtResource("2_kkmol")
+shader_parameter/rejilla = 80.0
+shader_parameter/tinte = Color(0.41960785, 0.35686275, 0.2901961, 1)
+
 [sub_resource type="Environment" id="Environment_cg8h7"]
 background_mode = 1
 ambient_light_source = 2
 ambient_light_color = Color(0.101960786, 0.08235294, 0.07058824, 1)
 ambient_light_energy = 0.12
+fog_enabled = true
+fog_light_color = Color(0.16862746, 0.12156863, 0.09019608, 1)
+fog_density = 0.05
 
 [node name="Nivel1" type="Node3D" unique_id=1893008020]
 script = ExtResource("1_v7j7s")
@@ -33,61 +43,73 @@ use_collision = true
 [node name="Roca" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=889590046]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.5, -0.5)
 size = Vector3(112, 14, 64)
+material = SubResource("ShaderMaterial_kkmol")
 
 [node name="Entrada" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=839497837]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.5, 2.25, 10)
 operation = 2
 size = Vector3(15, 4.5, 12)
+material = SubResource("ShaderMaterial_kkmol")
 
 [node name="Tunel1" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=1615191571]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.5, 1.6, 9.5)
 operation = 2
 size = Vector3(9, 3.2, 3)
+material = SubResource("ShaderMaterial_kkmol")
 
 [node name="Herramientas" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=213967992]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5, 2.25, 9.5)
 operation = 2
 size = Vector3(17, 4.5, 15)
+material = SubResource("ShaderMaterial_kkmol")
 
 [node name="TunelLargo" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=318752661]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1.6, 9.5)
 operation = 2
 size = Vector3(17, 3.2, 3)
+material = SubResource("ShaderMaterial_kkmol")
 
 [node name="Bifurcacion" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=536662619]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 2.25, 9.5)
 operation = 2
 size = Vector3(11, 4.5, 15)
+material = SubResource("ShaderMaterial_kkmol")
 
 [node name="TunelBodega" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=897574794]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 1.6, -3.5)
 operation = 2
 size = Vector3(3, 3.2, 11)
+material = SubResource("ShaderMaterial_kkmol")
 
 [node name="Bodega" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=1389900517]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2.25, -15.5)
 operation = 2
 size = Vector3(20, 4.5, 13)
+material = SubResource("ShaderMaterial_kkmol")
 
 [node name="TunelPatio" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=294058208]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 1.6, 8.5)
 operation = 2
 size = Vector3(9, 3.2, 3)
+material = SubResource("ShaderMaterial_kkmol")
 
 [node name="Patio" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=766435227]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.5, 2.75, 10.5)
 operation = 2
 size = Vector3(19, 5.5, 25)
+material = SubResource("ShaderMaterial_kkmol")
 
 [node name="TunelMalacate" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=976295453]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39, 1.6, -6.5)
 operation = 2
 size = Vector3(3, 3.2, 9)
+material = SubResource("ShaderMaterial_kkmol")
 
 [node name="Malacate" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=948619972]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39, 3.25, -17.5)
 operation = 2
 size = Vector3(20, 6.5, 13)
+material = SubResource("ShaderMaterial_kkmol")
 
 [node name="Jugador" parent="." unique_id=567177567 instance=ExtResource("2_w1egi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 1, 10)
@@ -108,7 +130,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 17)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 0, 17)
 
 [node name="Ficha" parent="." unique_id=2067859008 instance=ExtResource("4_orta5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.5, 0, 10.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -19)
 
 [node name="Puerta" parent="." unique_id=476976444 instance=ExtResource("5_47yg7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39, 0, -2)
