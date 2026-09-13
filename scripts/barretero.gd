@@ -2,6 +2,13 @@ extends CharacterBody3D
 
 enum Estado { INACTIVO, PERSECUCION, ATAQUE, MUERTO }
 
+const FILA_REPOSO := 0
+const FILAS_CAMINAR := [1, 2, 3, 4]
+const FILA_ATAQUE := 5
+const FILA_DOLOR := 6
+const FILA_MUERTE := 7
+
+@export var fps_animacion := 8.0
 @export var vida := 40.0
 @export var velocidad := 3.2
 @export var dano := 12.0
@@ -12,10 +19,11 @@ enum Estado { INACTIVO, PERSECUCION, ATAQUE, MUERTO }
 var estado := Estado.INACTIVO
 var jugador: Node3D
 var puede_atacar := true
+var _t_anim := 0.0
+var _dolor := 0.0
 
 @onready var agente: NavigationAgent3D = $NavigationAgent3D
-@onready var cuerpo: MeshInstance3D = $Cuerpo
-
+@onready var sprite: Sprite3D = $Cuerpo
 
 func _ready() -> void:
 	jugador = get_tree().get_first_node_in_group("jugador")
@@ -25,7 +33,11 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if estado == Estado.MUERTO or jugador == null:
+	if estado == Estado.MUERTO:
+		_animar(delta)
+		return
+		
+	if jugador == null:
 		return
 
 	if not is_on_floor():
@@ -57,7 +69,9 @@ func _physics_process(delta: float) -> void:
 	if estado != Estado.INACTIVO:
 		_mirar_al_jugador()
 
+	_animar(delta)
 	move_and_slide()
+	
 
 
 func _perseguir() -> void:
@@ -113,29 +127,51 @@ func recibir_dano(cantidad: float) -> void:
 		_morir()
 
 
+func _animar(delta: float) -> void:
+	_t_anim += delta * fps_animacion
+	_dolor = max(_dolor - delta, 0.0)
+
+	if estado == Estado.MUERTO:
+		sprite.frame = FILA_MUERTE * 8 + clampi(int(_t_anim * 0.35), 0, 4)
+		return
+
+	var fila := FILA_REPOSO
+	if _dolor > 0.0:
+		fila = FILA_DOLOR
+	elif estado == Estado.ATAQUE:
+		fila = FILA_ATAQUE
+	elif estado == Estado.PERSECUCION:
+		fila = FILAS_CAMINAR[int(_t_anim) % 4]
+
+	sprite.frame = fila * 8 + _columna_direccion()
+
+
+func _columna_direccion() -> int:
+	var camara := get_viewport().get_camera_3d()
+	if camara == null:
+		return 0
+
+	var hacia_camara := camara.global_position - global_position
+	var adelante := -global_transform.basis.z
+
+	var angulo := atan2(hacia_camara.x, hacia_camara.z) - atan2(adelante.x, adelante.z)
+	var col := int(round(angulo / TAU * 8.0)) % 8
+	return col if col >= 0 else col + 8
+
+
 func _destello() -> void:
-	var rojo := StandardMaterial3D.new()
-	rojo.albedo_color = Color(1.0, 0.3, 0.2)
-	cuerpo.material_override = rojo
+	_dolor = 0.25
+	sprite.modulate = Color(2.5, 0.8, 0.6)
 
 	await get_tree().create_timer(0.08).timeout
 
-	if is_instance_valid(cuerpo) and estado != Estado.MUERTO:
-		cuerpo.material_override = null
+	if is_instance_valid(sprite):
+		sprite.modulate = Color.WHITE
 
 
 func _morir() -> void:
 	estado = Estado.MUERTO
-	Partida.enemigo_eliminado()
 	velocity = Vector3.ZERO
+	_t_anim = 0.0
+	Partida.enemigo_eliminado()
 	$CollisionShape3D.set_deferred("disabled", true)
-
-	var gris := StandardMaterial3D.new()
-	gris.albedo_color = Color(0.25, 0.22, 0.2)
-	cuerpo.material_override = gris
-
-	var tween := create_tween()
-	tween.tween_property(self, "rotation:x", deg_to_rad(-90), 0.35)
-	tween.tween_interval(3.0)
-	tween.tween_property(self, "scale", Vector3(1.0, 0.02, 1.0), 0.4)
-	tween.tween_callback(queue_free)

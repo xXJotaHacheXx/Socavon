@@ -1,13 +1,11 @@
 [gd_scene format=3 uid="uid://ptbu42m5anjk"]
 
 [ext_resource type="Script" uid="uid://j025snewab0h" path="res://scripts/barretero.gd" id="1_luhem"]
+[ext_resource type="Texture2D" uid="uid://5gq23x7y6utk" path="res://assets/barretero.png" id="2_gs7mp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cg8h7"]
 radius = 0.4
 height = 1.8
-
-[sub_resource type="BoxMesh" id="BoxMesh_cg8h7"]
-size = Vector3(0.8, 1.8, 0.45)
 
 [node name="Barretero" type="CharacterBody3D" unique_id=1066758173 groups=["enemigos"]]
 script = ExtResource("1_luhem")
@@ -16,8 +14,15 @@ script = ExtResource("1_luhem")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_cg8h7")
 
-[node name="Cuerpo" type="MeshInstance3D" parent="." unique_id=1057062020]
+[node name="Cuerpo" type="Sprite3D" parent="." unique_id=1141321938]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
-mesh = SubResource("BoxMesh_cg8h7")
+pixel_size = 0.0375
+billboard = 2
+shaded = true
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_gs7mp")
+hframes = 8
+vframes = 8
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1577971917]
