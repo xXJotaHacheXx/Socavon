@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://c6xg4coolatba"]
+
+[ext_resource type="Script" uid="uid://huff15muy2y0" path="res://scripts/pausa.gd" id="1_ety1p"]
+
+[node name="Pausa" type="CanvasLayer" unique_id=1428577229]
+process_mode = 3
+script = ExtResource("1_ety1p")
+
+[node name="Fondo" type="ColorRect" parent="." unique_id=1028088787]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.74509805)
+
+[node name="Marco" type="PanelContainer" parent="Fondo" unique_id=245314463]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.0
+offset_top = -93.0
+offset_right = 122.0
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margen" type="MarginContainer" parent="Fondo/Marco" unique_id=600022620]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Columnas" type="HBoxContainer" parent="Fondo/Marco/Margen" unique_id=1518000041]
+layout_mode = 2
+theme_override_constants/separation = 28
+
+[node name="Opciones" type="VBoxContainer" parent="Fondo/Marco/Margen/Columnas" unique_id=696734506]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Titulo" type="Label" parent="Fondo/Marco/Margen/Columnas/Opciones" unique_id=379953564]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.41960785, 0.36862746, 0.32156864, 1)
+theme_override_font_sizes/font_size = 28
+text = "PAUSA"
+
+[node name="Reanudar" type="Button" parent="Fondo/Marco/Margen/Columnas/Opciones" unique_id=1932333016]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6039216, 0.5254902, 0.44705883, 1)
+theme_override_colors/font_focus_color = Color(0.9098039, 0.8627451, 0.7921569, 1)
+theme_override_colors/font_hover_color = Color(0.9098039, 0.8627451, 0.7921569, 1)
+theme_override_font_sizes/font_size = 16
+text = "REANUDAR"
+flat = true
+alignment = 0
+
+[node name="Reiniciar" type="Button" parent="Fondo/Marco/Margen/Columnas/Opciones" unique_id=968699216]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6039216, 0.5254902, 0.44705883, 1)
+theme_override_colors/font_focus_color = Color(0.9098039, 0.8627451, 0.7921569, 1)
+theme_override_colors/font_hover_color = Color(0.9098039, 0.8627451, 0.7921569, 1)
+theme_override_font_sizes/font_size = 16
+text = "REINICIAR NIVEL"
+flat = true
+alignment = 0
+
+[node name="Salir" type="Button" parent="Fondo/Marco/Margen/Columnas/Opciones" unique_id=1753269685]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6039216, 0.5254902, 0.44705883, 1)
+theme_override_colors/font_focus_color = Color(0.9098039, 0.8627451, 0.7921569, 1)
+theme_override_colors/font_hover_color = Color(0.9098039, 0.8627451, 0.7921569, 1)
+theme_override_font_sizes/font_size = 16
+text = "SALIR AL MENÚ"
+flat = true
+alignment = 0
+
+[node name="Estado" type="VBoxContainer" parent="Fondo/Marco/Margen/Columnas" unique_id=612380444]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="EstadoTitulo" type="Label" parent="Fondo/Marco/Margen/Columnas/Estado" unique_id=877162964]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.41960785, 0.36862746, 0.32156864, 1)
+theme_override_font_sizes/font_size = 11
+text = "ESTADO"
+
+[node name="Enemigos" type="Label" parent="Fondo/Marco/Margen/Columnas/Estado" unique_id=425307866]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.76862746, 0.654902, 0.49019608, 1)
+theme_override_font_sizes/font_size = 13
+
+[node name="Secretos" type="Label" parent="Fondo/Marco/Margen/Columnas/Estado" unique_id=641386079]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.76862746, 0.654902, 0.49019608, 1)
+theme_override_font_sizes/font_size = 13
+
+[node name="Fichas" type="Label" parent="Fondo/Marco/Margen/Columnas/Estado" unique_id=931184647]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.76862746, 0.654902, 0.49019608, 1)
+theme_override_font_sizes/font_size = 13
+
+[node name="Tiempo" type="Label" parent="Fondo/Marco/Margen/Columnas/Estado" unique_id=948867406]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.76862746, 0.654902, 0.49019608, 1)
+theme_override_font_sizes/font_size = 13

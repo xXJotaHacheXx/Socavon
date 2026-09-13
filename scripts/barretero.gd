@@ -33,7 +33,7 @@ const S_MUERTE := preload("res://assets/audio/muerte.wav")
 
 func _ready() -> void:
 	jugador = get_tree().get_first_node_in_group("jugador")
-	agente.path_desired_distance = 0.5
+	agente.path_desired_distance = 1
 	agente.target_desired_distance = distancia_ataque * 0.9
 	await get_tree().physics_frame
 
@@ -84,7 +84,11 @@ func _physics_process(delta: float) -> void:
 func _perseguir() -> void:
 	agente.target_position = jugador.global_position
 	var siguiente := agente.get_next_path_position()
-	var direccion := (siguiente - global_position).normalized()
+	
+	var direccion := siguiente - global_position
+	direccion.y = 0.0
+	direccion = direccion.normalized()
+
 	velocity.x = direccion.x * velocidad
 	velocity.z = direccion.z * velocidad
 

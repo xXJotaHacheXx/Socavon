@@ -45,9 +45,6 @@ func _unhandled_input(evento: InputEvent) -> void:
 		camara.rotate_x(-evento.relative.y * sensibilidad)
 		camara.rotation.x = clamp(camara.rotation.x, deg_to_rad(-75), deg_to_rad(75))
 
-	if evento.is_action_pressed("ui_cancel"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -111,6 +108,7 @@ func recibir_dano(cantidad: float) -> void:
 	create_tween().tween_property(destello, "color:a", 0.0, 0.25)
 
 	if vida <= 0.0:
+		Partida.reiniciar()
 		get_tree().reload_current_scene()
 
 
