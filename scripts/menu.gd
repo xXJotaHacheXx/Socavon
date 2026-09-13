@@ -9,11 +9,14 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	Partida.reiniciar()
 
-	for b in botones:
-		b.focus_entered.connect(_marcar)
-		b.mouse_entered.connect(b.grab_focus)   # que el mouse mueva el cursor también
+	var sin_foco := StyleBoxEmpty.new()
 
-	# que el foco dé la vuelta: de SALIR bajas a NUEVA y al revés
+	for b in botones:
+		b.add_theme_stylebox_override("focus", sin_foco)
+		b.focus_entered.connect(_marcar)
+		b.mouse_entered.connect(b.grab_focus)
+
+	# el foco da vuelta: de SALIR bajas a NUEVA y al revés
 	botones[0].focus_neighbor_top = botones[-1].get_path()
 	botones[-1].focus_neighbor_bottom = botones[0].get_path()
 

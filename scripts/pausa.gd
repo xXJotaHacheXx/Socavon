@@ -15,7 +15,10 @@ func _ready() -> void:
 	botones[1].pressed.connect(_on_reiniciar_pressed)
 	botones[2].pressed.connect(_on_salir_pressed)
 
+	var sin_foco := StyleBoxEmpty.new()
+
 	for b in botones:
+		b.add_theme_stylebox_override("focus", sin_foco)
 		b.focus_entered.connect(_marcar)
 		b.mouse_entered.connect(b.grab_focus)
 
