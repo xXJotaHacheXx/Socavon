@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Socavon"
-run/main_scene="uid://duuqoc7adpyi8"
+run/main_scene="uid://dbpnmw4pxdyso"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
