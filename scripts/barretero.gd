@@ -126,6 +126,7 @@ func _destello() -> void:
 
 func _morir() -> void:
 	estado = Estado.MUERTO
+	Partida.enemigo_eliminado()
 	velocity = Vector3.ZERO
 	$CollisionShape3D.set_deferred("disabled", true)
 

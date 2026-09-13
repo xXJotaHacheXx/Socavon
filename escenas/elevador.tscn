@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ca8yqdhup3np0"]
+
+[ext_resource type="Script" uid="uid://d0avtvaqe70ot" path="res://scripts/elevador.gd" id="1_xebh5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cg8h7"]
+size = Vector3(3, 3, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_whjgx"]
+size = Vector3(3, 0.2, 3)
+
+[node name="Elevador" type="Area3D" unique_id=699436407]
+script = ExtResource("1_xebh5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1664109630]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("BoxShape3D_cg8h7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=371988983]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+mesh = SubResource("BoxMesh_whjgx")

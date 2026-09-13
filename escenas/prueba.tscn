@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://duuqoc7adpyi8"]
 
 [ext_resource type="PackedScene" uid="uid://bj7n5u2bfpyiq" path="res://escenas/jugador.tscn" id="1_bfths"]
+[ext_resource type="Script" uid="uid://dfu2856kqg0nw" path="res://scripts/nivel.gd" id="1_e5wxq"]
 [ext_resource type="Script" uid="uid://ciqa56cv0u5kc" path="res://scripts/blanco.gd" id="2_2jt68"]
 [ext_resource type="PackedScene" uid="uid://ptbu42m5anjk" path="res://escenas/barretero.tscn" id="3_mdukl"]
 [ext_resource type="PackedScene" uid="uid://hv2muokpk4v" path="res://escenas/ficha.tscn" id="4_8nejv"]
 [ext_resource type="PackedScene" uid="uid://he53hi2i6bkt" path="res://escenas/puerta.tscn" id="5_e5wxq"]
+[ext_resource type="PackedScene" uid="uid://ca8yqdhup3np0" path="res://escenas/elevador.tscn" id="7_1cc5l"]
+[ext_resource type="PackedScene" uid="uid://d2iorb2hpjgbo" path="res://escenas/secreto.tscn" id="8_daxef"]
+[ext_resource type="PackedScene" uid="uid://dv1wmm5w7chbp" path="res://escenas/fin_nivel.tscn" id="9_daxef"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_cg8h7"]
 vertices = PackedVector3Array(-9.420843, -0.59780455, -7.6428213, -9.420843, -0.59780455, 8.857179, 9.579157, -0.59780455, 8.857179, 9.579157, -0.59780455, -7.6428213)
@@ -17,6 +21,7 @@ agent_height = 1.8
 [sub_resource type="BoxShape3D" id="BoxShape3D_whjgx"]
 
 [node name="Prueba" type="Node3D" unique_id=669747661]
+script = ExtResource("1_e5wxq")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=813810445]
 transform = Transform3D(0.8660254, 0.35355338, -0.35355338, 0, 0.70710677, 0.70710677, 0.5, -0.6123724, 0.6123724, 0, 0, 0)
@@ -29,6 +34,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.024795532, 0.0551672, 0.01
 navigation_mesh = SubResource("NavigationMesh_cg8h7")
 
 [node name="Blanco" type="StaticBody3D" parent="NavigationRegion3D" unique_id=38723292]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.634162, 0, 0)
 script = ExtResource("2_2jt68")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Blanco" unique_id=294476812]
@@ -55,10 +61,18 @@ use_collision = true
 size = Vector3(20, 4, 1)
 
 [node name="Barretero" parent="." unique_id=1066758173 instance=ExtResource("3_mdukl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -1, -5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.615534, -1, -0.7895787)
 
 [node name="Ficha" parent="." unique_id=2067859008 instance=ExtResource("4_8nejv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.0178843, -1.0426359, -5.549494)
 
 [node name="Puerta" parent="." unique_id=476976444 instance=ExtResource("5_e5wxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4550295, -1.0426378, 5.093611)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.91529846, -1.0426378, 1.5755265)
+
+[node name="Elevador" parent="." unique_id=699436407 instance=ExtResource("7_1cc5l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3681307, -1.0426378, -5.2102547)
+
+[node name="Secreto" parent="." unique_id=1935161900 instance=ExtResource("8_daxef")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.225854, -1.0426378, 6.444165)
+
+[node name="FinNivel" parent="." unique_id=561494145 instance=ExtResource("9_daxef")]

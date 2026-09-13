@@ -9,7 +9,7 @@ height = 1.8
 [sub_resource type="BoxMesh" id="BoxMesh_cg8h7"]
 size = Vector3(0.8, 1.8, 0.45)
 
-[node name="Barretero" type="CharacterBody3D" unique_id=1066758173]
+[node name="Barretero" type="CharacterBody3D" unique_id=1066758173 groups=["enemigos"]]
 script = ExtResource("1_luhem")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1028749252]
