@@ -12,6 +12,7 @@ var listo := true
 
 @onready var camara: Camera3D = get_parent()
 @onready var jugador: CharacterBody3D = camara.get_parent()
+@onready var sonido: AudioStreamPlayer3D = $Sonido
 @onready var fogonazo: OmniLight3D = $Fogonazo
 
 var municion := 48
@@ -36,6 +37,8 @@ func _disparar() -> void:
 	create_tween().tween_property(camara, "position:z", 0.0, 0.12)
 
 	fogonazo.visible = true
+	sonido.pitch_scale = randf_range(0.96, 1.04)
+	sonido.play()
 
 	force_raycast_update()
 	if is_colliding():

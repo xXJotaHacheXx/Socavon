@@ -27,3 +27,6 @@ shape = SubResource("BoxShape3D_whjgx")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Zona" unique_id=299940869]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 shape = SubResource("BoxShape3D_cg8h7")
+
+[node name="Sonido" type="AudioStreamPlayer3D" parent="." unique_id=985205911]
+bus = &"SFX"

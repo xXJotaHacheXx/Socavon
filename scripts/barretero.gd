@@ -22,6 +22,12 @@ var puede_atacar := true
 var _t_anim := 0.0
 var _dolor := 0.0
 
+const S_GRITO := preload("res://assets/audio/grito.wav")
+const S_GOLPE := preload("res://assets/audio/golpe.wav")
+const S_DOLOR := preload("res://assets/audio/dolor.wav")
+const S_MUERTE := preload("res://assets/audio/muerte.wav")
+
+@onready var voz: AudioStreamPlayer3D = $Voz
 @onready var agente: NavigationAgent3D = $NavigationAgent3D
 @onready var sprite: Sprite3D = $Cuerpo
 
@@ -51,6 +57,7 @@ func _physics_process(delta: float) -> void:
 			velocity.z = 0.0
 			if distancia < distancia_vision and _ve_al_jugador():
 				estado = Estado.PERSECUCION
+				_sonar(S_GRITO)
 
 		Estado.PERSECUCION:
 			if distancia <= distancia_ataque:
@@ -106,6 +113,7 @@ func _atacar() -> void:
 		return
 
 	puede_atacar = false
+	_sonar(S_GOLPE)
 	if jugador.has_method("recibir_dano"):
 		jugador.recibir_dano(dano)
 
@@ -114,6 +122,10 @@ func _atacar() -> void:
 
 
 func recibir_dano(cantidad: float) -> void:
+	if estado == Estado.INACTIVO:
+		estado = Estado.PERSECUCION
+		_sonar(S_GRITO)
+
 	if estado == Estado.MUERTO:
 		return
 
@@ -160,6 +172,9 @@ func _columna_direccion() -> int:
 
 
 func _destello() -> void:
+	if estado != Estado.MUERTO:
+		_sonar(S_DOLOR)
+	
 	_dolor = 0.25
 	sprite.modulate = Color(2.5, 0.8, 0.6)
 
@@ -171,7 +186,13 @@ func _destello() -> void:
 
 func _morir() -> void:
 	estado = Estado.MUERTO
+	_sonar(S_MUERTE)
 	velocity = Vector3.ZERO
 	_t_anim = 0.0
 	Partida.enemigo_eliminado()
 	$CollisionShape3D.set_deferred("disabled", true)
+
+func _sonar(s: AudioStream) -> void:
+	voz.stream = s
+	voz.pitch_scale = randf_range(0.92, 1.08)
+	voz.play()

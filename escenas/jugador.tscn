@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://bcu1lfgwq6tic" path="res://scripts/movimiento.gd" id="1_tml57"]
 [ext_resource type="Script" uid="uid://b1ulsu68lgpjm" path="res://scripts/disparo.gd" id="2_jpodt"]
 [ext_resource type="Script" uid="uid://d06ldto013rik" path="res://scripts/hud.gd" id="3_njcx7"]
+[ext_resource type="AudioStream" uid="uid://rq6qk4rx7hji" path="res://assets/audio/disparo.wav" id="3_xutah"]
+[ext_resource type="AudioStream" uid="uid://05dx7ibg2ubk" path="res://assets/audio/dano.wav" id="5_ovq70"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cg8h7"]
 radius = 0.4
@@ -27,6 +29,10 @@ script = ExtResource("2_jpodt")
 light_color = Color(0.81803834, 0.6013778, 0, 1)
 light_energy = 4.0
 omni_range = 6.0
+
+[node name="Sonido" type="AudioStreamPlayer3D" parent="Camera3D/RayoDisparo" unique_id=507561264]
+stream = ExtResource("3_xutah")
+bus = &"SFX"
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=2107753356]
 script = ExtResource("3_njcx7")
@@ -156,3 +162,10 @@ offset_transform_enabled = true
 offset_transform_position = Vector2(-150, -115)
 theme_override_font_sizes/font_size = 18
 horizontal_alignment = 1
+
+[node name="SonidoPasos" type="AudioStreamPlayer3D" parent="." unique_id=1510684492]
+bus = &"SFX"
+
+[node name="SonidoVoz" type="AudioStreamPlayer3D" parent="." unique_id=1223110289]
+stream = ExtResource("5_ovq70")
+bus = &"SFX"

@@ -7,6 +7,10 @@ const NOMBRES := {"estano": "ESTAÑO", "cobre": "COBRE"}
 
 var abierta := false
 
+const S_PUERTA := preload("res://assets/audio/puerta.wav")
+const S_RECHAZO := preload("res://assets/audio/rechazo.wav")
+
+@onready var sonido: AudioStreamPlayer3D = $Sonido
 @onready var malla: MeshInstance3D = $MeshInstance3D
 @onready var colision: CollisionShape3D = $CollisionShape3D
 @onready var zona: Area3D = $Zona
@@ -33,12 +37,15 @@ func _al_acercarse(cuerpo: Node3D) -> void:
 
 func _abrir() -> void:
 	abierta = true
+	sonido.stream = S_PUERTA
 	colision.set_deferred("disabled", true)
 	create_tween().tween_property(self, "position:y", position.y + altura_apertura, 0.9)
-
+	sonido.play()
 
 func _rechazar() -> void:
 	var t := create_tween()
+	sonido.stream = S_RECHAZO
 	t.tween_property(malla, "position:z", 0.12, 0.06)
 	t.tween_property(malla, "position:z", -0.12, 0.06)
 	t.tween_property(malla, "position:z", 0.0, 0.06)
+	sonido.play()

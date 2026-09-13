@@ -8,7 +8,7 @@ var altura_base := 0.0
 var tiempo := 0.0
 
 @onready var malla: MeshInstance3D = $MeshInstance3D
-
+@onready var sonido: AudioStreamPlayer3D = $Sonido
 
 func _ready() -> void:
 	altura_base = malla.position.y
@@ -34,4 +34,10 @@ func _al_entrar(cuerpo: Node3D) -> void:
 
 	Partida.agregar_ficha(tipo)
 	Partida.avisar("FICHA DE " + NOMBRES[tipo])
+
+	sonido.play()
+	malla.visible = false
+	set_deferred("monitoring", false)
+
+	await sonido.finished
 	queue_free()

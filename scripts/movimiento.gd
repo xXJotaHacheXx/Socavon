@@ -19,6 +19,16 @@ var armadura := 0.0
 var tiempo_balanceo := 0.0
 var camara_y := 0.0
 
+const PASOS := [
+	preload("res://assets/audio/paso1.wav"),
+	preload("res://assets/audio/paso2.wav"),
+	preload("res://assets/audio/paso3.wav"),
+	preload("res://assets/audio/paso4.wav"),
+]
+var _dist_paso := 0.0
+
+@onready var sonido_pasos: AudioStreamPlayer3D = $SonidoPasos
+@onready var sonido_voz: AudioStreamPlayer3D = $SonidoVoz
 @onready var camara: Camera3D = $Camera3D
 @onready var destello: ColorRect = $HUD/Dano
 
@@ -66,9 +76,11 @@ func _physics_process(delta: float) -> void:
 	
 	var fov_objetivo := 82.0 if corriendo else 75.0
 	camara.fov = lerp(camara.fov, fov_objetivo, delta * 8.0)
-	
+		
 	_balanceo(delta)
-	
+	_sonar_pasos(delta)
+
+
 func _balanceo(delta: float) -> void:
 	var rapidez := Vector2(velocity.x, velocity.z).length()
 
@@ -81,6 +93,7 @@ func _balanceo(delta: float) -> void:
 		camara.position.y = lerp(camara.position.y, camara_y, delta * 10.0)
 		camara.position.x = lerp(camara.position.x, 0.0, delta * 10.0)
 
+
 func recibir_dano(cantidad: float) -> void:
 	if armadura > 0.0:
 		var absorbido: float = min(cantidad, armadura)
@@ -91,6 +104,7 @@ func recibir_dano(cantidad: float) -> void:
 	if cantidad > 0.0:
 		vida -= cantidad
 		salud_cambiada.emit(vida, vida_maxima)
+		sonido_voz.play()
 
 	destello.color = Color(0.2, 0.5, 1.0) if armadura > 0.0 else Color(1.0, 0.0, 0.13)
 	destello.color.a = 0.45
@@ -98,3 +112,18 @@ func recibir_dano(cantidad: float) -> void:
 
 	if vida <= 0.0:
 		get_tree().reload_current_scene()
+
+
+func _sonar_pasos(delta: float) -> void:
+	var rapidez := Vector2(velocity.x, velocity.z).length()
+
+	if rapidez < 0.5 or not is_on_floor():
+		return
+
+	_dist_paso += rapidez * delta
+
+	if _dist_paso >= 2.2:
+		_dist_paso = 0.0
+		sonido_pasos.stream = PASOS.pick_random()
+		sonido_pasos.pitch_scale = randf_range(0.9, 1.1)
+		sonido_pasos.play()

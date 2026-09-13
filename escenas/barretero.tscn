@@ -26,3 +26,7 @@ hframes = 8
 vframes = 8
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1577971917]
+
+[node name="Voz" type="AudioStreamPlayer3D" parent="." unique_id=723039713]
+unit_size = 12.0
+bus = &"SFX"
