@@ -12,6 +12,7 @@ signal armadura_cambiada(actual: float)
 @export var friccion := 60.0
 @export var balanceo_fuerza := 0.06
 @export var balanceo_ritmo := 12.0
+@export var factor_agua := 0.55
 
 var vida := 100.0
 var estamina := 100.0
@@ -26,6 +27,13 @@ const PASOS := [
 	preload("res://assets/audio/paso4.wav"),
 ]
 var _dist_paso := 0.0
+
+const PASOS_AGUA := [
+	preload("res://assets/audio/agua_paso1.wav"),
+	preload("res://assets/audio/agua_paso2.wav"),
+	preload("res://assets/audio/agua_paso3.wav"),
+]
+var _aguas := 0          # en cuántas zonas de agua está metido
 
 @onready var sonido_pasos: AudioStreamPlayer3D = $SonidoPasos
 @onready var sonido_voz: AudioStreamPlayer3D = $SonidoVoz
@@ -60,7 +68,10 @@ func _physics_process(delta: float) -> void:
 	else:
 		estamina = min(estamina + 33.0 * delta, 100.0)
 
+
 	var vel := velocidad_correr if corriendo else velocidad_caminar
+	if _aguas > 0:
+		vel *= factor_agua
 
 	if direccion != Vector3.ZERO:
 		velocity.x = move_toward(velocity.x, direccion.x * vel, aceleracion * delta)
@@ -122,6 +133,14 @@ func _sonar_pasos(delta: float) -> void:
 
 	if _dist_paso >= 2.2:
 		_dist_paso = 0.0
-		sonido_pasos.stream = PASOS.pick_random()
+		sonido_pasos.stream = (PASOS_AGUA if _aguas > 0 else PASOS).pick_random()
 		sonido_pasos.pitch_scale = randf_range(0.9, 1.1)
 		sonido_pasos.play()
+
+
+func entrar_agua() -> void:
+	_aguas += 1
+
+
+func salir_agua() -> void:
+	_aguas = maxi(_aguas - 1, 0)

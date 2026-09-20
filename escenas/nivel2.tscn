@@ -1,0 +1,381 @@
+[gd_scene format=3 uid="uid://i1dds2sycly0"]
+
+[ext_resource type="Script" uid="uid://dfu2856kqg0nw" path="res://scripts/nivel.gd" id="1_7h3xd"]
+[ext_resource type="Material" uid="uid://dm8vtpic13w2w" path="res://assets/mina.tres" id="2_ho4ip"]
+[ext_resource type="PackedScene" uid="uid://bj7n5u2bfpyiq" path="res://escenas/jugador.tscn" id="3_tmy65"]
+[ext_resource type="PackedScene" uid="uid://hv2muokpk4v" path="res://escenas/ficha.tscn" id="4_vh1yy"]
+[ext_resource type="PackedScene" uid="uid://he53hi2i6bkt" path="res://escenas/puerta.tscn" id="5_4xigu"]
+[ext_resource type="PackedScene" uid="uid://d2iorb2hpjgbo" path="res://escenas/secreto.tscn" id="6_h7mt2"]
+[ext_resource type="PackedScene" uid="uid://ca8yqdhup3np0" path="res://escenas/elevador.tscn" id="7_cg5ca"]
+[ext_resource type="PackedScene" uid="uid://dv1wmm5w7chbp" path="res://escenas/fin_nivel.tscn" id="8_0l8vp"]
+[ext_resource type="PackedScene" uid="uid://ptbu42m5anjk" path="res://escenas/barretero.tscn" id="9_0nril"]
+[ext_resource type="PackedScene" uid="uid://da4w0dajovkwy" path="res://escenas/nahual.tscn" id="10_n00kc"]
+[ext_resource type="Script" uid="uid://cby5tn0yc7ktb" path="res://scripts/agua.gd" id="11_4xigu"]
+[ext_resource type="Material" uid="uid://du43m6l8ehqvr" path="res://assets/agua.tres" id="12_h7mt2"]
+[ext_resource type="AudioStream" uid="uid://ccgocldvxofth" path="res://assets/audio/agua_loop.wav" id="13_h7mt2"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_cg8h7"]
+vertices = PackedVector3Array(-55, 9, -32, -55, 9, 31, 56, 9, 31, 56, 9, -32, 11.25, 0.5, -17, 13, 0.5, -17, 13.25, 0.5, -18.5, 11, 0.5, -18.5, 15.5, 0.5, -25.25, 8.75, 0.5, -25.25, 15.5, 0.5, -18.5, 8.75, 0.5, -18.5, -45.5, 0.5, -16.75, -43.75, 0.5, -17, -44, 0.5, -18.75, -45.5, 0.5, -19, -53.25, 0.5, -22.25, -53.25, 0.5, -13.5, -45.5, 0.5, -22.25, -45.5, 0.5, -13.5, -42.75, 0.5, -18.75, -42.25, 0.5, -16.75, -42.25, 0.5, -7.5, -25.5, 0.5, -7.5, -25.5, 0.5, -12.25, -42.25, 0.5, -20.25, -25.5, 0.5, -15.5, -25.5, 0.5, -20.25, -23.5, 0.5, -12.5, -23.5, 0.5, -15.25, 11.25, 0.5, -15.75, 13.25, 0.5, -15.25, -6.5, 0.5, -12.25, 21.5, 0.5, -12.5, 10.75, 0.5, -15.25, -6.75, 0.5, -15.25, 21.5, 0.5, -15.25, -9.5, 0.5, -12.5, -9.25, 0.5, -8.5, -6.5, 0.5, -8.25, -9.25, 0.5, -6.75, -6.25, 0.5, -6.25, -14.25, 0.5, 12.75, -9.5, 0.5, 18.5, -6.25, 0.5, 18.5, -9.75, 0.5, -6.25, -14.25, 0.5, 3.25, -9.25, 0.5, 20.5, -6.5, 0.5, 20.5, -14.25, 0.5, -6.25, -14.25, 0.5, 18.5, -14.75, 0.5, 3.75, -16.5, 0.5, 3.75, -16.25, 0.5, 12.5, 18.5, 0.5, 18.5, 18.5, 0.5, -6.25, 42.5, 0.5, 5.25, 44, 0.5, 5, 44, 0.5, 3.25, 42.5, 0.5, 3, 35.25, 0.5, 11.5, 33, 0.5, 11.5, 33.25, 0.5, 13.5, 35, 0.5, 13.5, 42.5, 0.5, -3.25, 29.75, 0.5, -3.25, 29.75, 0.5, 11.5, 42.5, 0.5, 11.5, 45.25, 0.5, 3.25, 45.75, 0.5, 5.25, 45.75, 0.5, 10.5, 54.5, 0.5, 10.5, 45.75, 0.5, 2.75, 54.5, 0.5, -2.25, 45.75, 0.5, -2.25, -35.5, 0.5, 9, -35.5, 0.5, 7.25, -37.5, 0.5, 7, -37.5, 0.5, 9.25, -50.25, 0.5, 2.75, -50.25, 0.5, 13.5, -37.5, 0.5, 2.75, -37.5, 0.5, 13.5, -25.25, 0.5, 3.75, -25.25, 0.5, 6.75, -25.5, 0.5, 9, -25.25, 0.5, 12.5, -25.75, 0.5, 7.25, 33.25, 0.5, 15.25, 35.25, 0.5, 15.75, 32.75, 0.5, 15.75, 24.75, 0.5, 15.75, 24.75, 0.5, 22.25, 24.25, 0.5, 22.75, 22.5, 0.5, 22.75, 22.75, 0.5, 25.5, 24.75, 0.5, 25.75, 43.5, 0.5, 28.5, 43.5, 0.5, 15.75, 24.75, 0.5, 28.5, -9.25, 0.5, 22.25, -6.5, 0.5, 22.5, -9.75, 0.5, 22.75, -17.25, 0.5, 22.75, -17.25, 0.5, 25.5, -5, 0.5, 25.5, -4.75, 0.5, 22.75)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(4, 7, 5), PackedInt32Array(5, 7, 6), PackedInt32Array(7, 9, 6), PackedInt32Array(6, 9, 8), PackedInt32Array(8, 10, 6), PackedInt32Array(7, 11, 9), PackedInt32Array(14, 13, 15), PackedInt32Array(15, 13, 12), PackedInt32Array(12, 17, 15), PackedInt32Array(15, 17, 16), PackedInt32Array(16, 18, 15), PackedInt32Array(12, 19, 17), PackedInt32Array(14, 20, 13), PackedInt32Array(13, 20, 21), PackedInt32Array(23, 22, 24), PackedInt32Array(24, 22, 21), PackedInt32Array(20, 25, 21), PackedInt32Array(21, 25, 27), PackedInt32Array(21, 27, 26), PackedInt32Array(28, 24, 29), PackedInt32Array(29, 24, 26), PackedInt32Array(26, 24, 21), PackedInt32Array(4, 5, 30), PackedInt32Array(30, 5, 31), PackedInt32Array(35, 34, 32), PackedInt32Array(32, 34, 33), PackedInt32Array(30, 31, 34), PackedInt32Array(34, 31, 33), PackedInt32Array(31, 36, 33), PackedInt32Array(35, 32, 37), PackedInt32Array(37, 32, 38), PackedInt32Array(38, 32, 39), PackedInt32Array(28, 29, 37), PackedInt32Array(37, 29, 35), PackedInt32Array(38, 39, 40), PackedInt32Array(40, 39, 41), PackedInt32Array(44, 43, 42), PackedInt32Array(40, 41, 45), PackedInt32Array(45, 41, 46), PackedInt32Array(47, 43, 48), PackedInt32Array(48, 43, 44), PackedInt32Array(46, 49, 45), PackedInt32Array(43, 50, 42), PackedInt32Array(53, 52, 51), PackedInt32Array(51, 46, 53), PackedInt32Array(53, 46, 42), PackedInt32Array(42, 46, 44), PackedInt32Array(44, 46, 41), PackedInt32Array(44, 41, 55), PackedInt32Array(44, 55, 54), PackedInt32Array(57, 56, 58), PackedInt32Array(58, 56, 59), PackedInt32Array(56, 60, 59), PackedInt32Array(59, 60, 61), PackedInt32Array(62, 61, 63), PackedInt32Array(63, 61, 60), PackedInt32Array(61, 66, 59), PackedInt32Array(59, 66, 64), PackedInt32Array(64, 66, 65), PackedInt32Array(56, 67, 60), PackedInt32Array(58, 68, 57), PackedInt32Array(57, 68, 69), PackedInt32Array(71, 70, 69), PackedInt32Array(68, 72, 69), PackedInt32Array(69, 72, 73), PackedInt32Array(69, 73, 71), PackedInt32Array(72, 74, 73), PackedInt32Array(75, 78, 76), PackedInt32Array(76, 78, 77), PackedInt32Array(78, 80, 77), PackedInt32Array(77, 80, 79), PackedInt32Array(79, 81, 77), PackedInt32Array(78, 82, 80), PackedInt32Array(84, 83, 52), PackedInt32Array(53, 86, 85), PackedInt32Array(87, 84, 85), PackedInt32Array(85, 84, 52), PackedInt32Array(85, 52, 53), PackedInt32Array(76, 87, 75), PackedInt32Array(75, 87, 85), PackedInt32Array(62, 63, 88), PackedInt32Array(88, 63, 89), PackedInt32Array(92, 91, 90), PackedInt32Array(90, 88, 89), PackedInt32Array(94, 93, 95), PackedInt32Array(95, 93, 96), PackedInt32Array(96, 89, 99), PackedInt32Array(99, 89, 98), PackedInt32Array(99, 98, 97), PackedInt32Array(93, 92, 96), PackedInt32Array(96, 92, 90), PackedInt32Array(96, 90, 89), PackedInt32Array(47, 48, 100), PackedInt32Array(100, 48, 101), PackedInt32Array(103, 102, 104), PackedInt32Array(104, 102, 105), PackedInt32Array(100, 101, 102), PackedInt32Array(102, 101, 106), PackedInt32Array(102, 106, 105), PackedInt32Array(106, 94, 105), PackedInt32Array(105, 94, 95)]
+
+[sub_resource type="Environment" id="Environment_tmy65"]
+background_mode = 1
+ambient_light_source = 2
+ambient_light_color = Color(0.101960786, 0.08235294, 0.07058824, 1)
+ambient_light_energy = 0.12
+fog_enabled = true
+fog_light_color = Color(0.07058824, 0.13725491, 0.18039216, 1)
+fog_density = 0.05
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cg5ca"]
+size = Vector3(34, 1.2, 26)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0l8vp"]
+size = Vector3(34, 0.5, 26)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cg8h7"]
+size = Vector3(9, 1.2, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cg8h7"]
+size = Vector3(9, 0.5, 10)
+
+[node name="Nivel2" type="Node3D" unique_id=642634049]
+script = ExtResource("1_7h3xd")
+numero = 2
+tiempo_par = 420.0
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1873991042]
+navigation_mesh = SubResource("NavigationMesh_cg8h7")
+
+[node name="Mina" type="CSGCombiner3D" parent="NavigationRegion3D" unique_id=1792534708 groups=["mina"]]
+use_collision = true
+
+[node name="Roca" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=1339303053]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.5, -0.5)
+size = Vector3(112, 14, 64)
+
+[node name="Descenso" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=708087378]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 2.5, 8)
+operation = 2
+size = Vector3(14, 5, 12)
+material = ExtResource("2_ho4ip")
+
+[node name="TunelOeste" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=1995093238]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 1.6, 8)
+operation = 2
+size = Vector3(12, 3.2, 3)
+material = ExtResource("2_ho4ip")
+
+[node name="Reja" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=62895150]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 2.25, 8)
+operation = 2
+size = Vector3(12, 4.5, 10)
+material = ExtResource("2_ho4ip")
+
+[node name="Inundado" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=1766675945]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 3.5, 6)
+operation = 2
+size = Vector3(34, 7, 26)
+material = ExtResource("2_ho4ip")
+
+[node name="RampaBombas" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=28669629]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.6, 21)
+operation = 2
+size = Vector3(4, 3.2, 10)
+material = ExtResource("2_ho4ip")
+
+[node name="PasilloBombas" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=1497302695]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.25, 24)
+operation = 2
+size = Vector3(40, 4.5, 4)
+material = ExtResource("2_ho4ip")
+
+[node name="AccesoBombas" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=1415656865]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 1.6, 24)
+operation = 2
+size = Vector3(8, 3.2, 4)
+material = ExtResource("2_ho4ip")
+
+[node name="Bombas" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=204235587]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 2.75, 22)
+operation = 2
+size = Vector3(20, 5.5, 14)
+material = ExtResource("2_ho4ip")
+
+[node name="RampaVagonetas" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=1633254819]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.6, -9)
+operation = 2
+size = Vector3(4, 3.2, 10)
+material = ExtResource("2_ho4ip")
+
+[node name="PasilloVagonetas" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=602831473]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.25, -14)
+operation = 2
+size = Vector3(40, 4.5, 4)
+material = ExtResource("2_ho4ip")
+
+[node name="AccesoVagonetas" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=245231551]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 1.6, -14)
+operation = 2
+size = Vector3(8, 3.2, 4)
+material = ExtResource("2_ho4ip")
+
+[node name="Vagonetas" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=278372969]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 2.75, -14)
+operation = 2
+size = Vector3(18, 5.5, 14)
+material = ExtResource("2_ho4ip")
+
+[node name="TunelSumidero" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=153906535]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46, 1.6, -18)
+operation = 2
+size = Vector3(8, 3.2, 3)
+material = ExtResource("2_ho4ip")
+
+[node name="Sumidero" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=1023787645]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.5, 2.25, -18)
+operation = 2
+size = Vector3(9, 4.5, 10)
+material = ExtResource("2_ho4ip")
+
+[node name="TunelAlcoba" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=1843123834]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 1.6, -19)
+operation = 2
+size = Vector3(3, 3.2, 8)
+material = ExtResource("2_ho4ip")
+
+[node name="Alcoba" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=1592995463]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2.25, -22)
+operation = 2
+size = Vector3(8, 4.5, 8)
+material = ExtResource("2_ho4ip")
+
+[node name="TunelEste" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=1410894823]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 1.6, 17.5)
+operation = 2
+size = Vector3(3, 3.2, 15)
+material = ExtResource("2_ho4ip")
+
+[node name="Compuerta" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=462145606]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 2.75, 4)
+operation = 2
+size = Vector3(14, 5.5, 16)
+material = ExtResource("2_ho4ip")
+
+[node name="TunelTiro" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=1455637107]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 1.6, 4)
+operation = 2
+size = Vector3(4, 3.2, 3)
+material = ExtResource("2_ho4ip")
+
+[node name="Tiro" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=780919017]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 3.25, 4)
+operation = 2
+size = Vector3(10, 6.5, 14)
+material = ExtResource("2_ho4ip")
+
+[node name="Jugador" parent="." unique_id=567177567 instance=ExtResource("3_tmy65")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -46, 1, 8)
+
+[node name="Ficha" parent="." unique_id=2067859008 instance=ExtResource("4_vh1yy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 22)
+
+[node name="Ficha2" parent="." unique_id=351065856 instance=ExtResource("4_vh1yy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -14)
+tipo = "cobre"
+
+[node name="Puerta" parent="." unique_id=476976444 instance=ExtResource("5_4xigu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 13)
+
+[node name="Puerta2" parent="." unique_id=2071061316 instance=ExtResource("5_4xigu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 44, 0, 4)
+ficha_requerida = "cobre"
+
+[node name="Secreto" parent="." unique_id=1935161900 instance=ExtResource("6_h7mt2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.5, 0, -18)
+
+[node name="Secreto2" parent="." unique_id=544052990 instance=ExtResource("6_h7mt2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -22)
+
+[node name="Elevador" parent="." unique_id=699436407 instance=ExtResource("7_cg5ca")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 3.9)
+
+[node name="FinNivel" parent="." unique_id=561494145 instance=ExtResource("8_0l8vp")]
+
+[node name="Barretero" parent="." unique_id=1066758173 instance=ExtResource("9_0nril")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 5)
+
+[node name="Barretero2" parent="." unique_id=1177493918 instance=ExtResource("9_0nril")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 12)
+
+[node name="Barretero3" parent="." unique_id=738087850 instance=ExtResource("9_0nril")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="Barretero4" parent="." unique_id=1060741484 instance=ExtResource("9_0nril")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 14)
+
+[node name="Barretero5" parent="." unique_id=1422871338 instance=ExtResource("9_0nril")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, -11)
+
+[node name="Barretero6" parent="." unique_id=433200737 instance=ExtResource("9_0nril")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -17)
+
+[node name="Barretero7" parent="." unique_id=656785237 instance=ExtResource("9_0nril")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 20)
+
+[node name="Barretero8" parent="." unique_id=2090176586 instance=ExtResource("9_0nril")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 26)
+
+[node name="Nahual" parent="." unique_id=1841945722 instance=ExtResource("10_n00kc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 24)
+
+[node name="Nahual2" parent="." unique_id=1797802554 instance=ExtResource("10_n00kc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 24)
+
+[node name="Nahual3" parent="." unique_id=1602502907 instance=ExtResource("10_n00kc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 18)
+
+[node name="Nahual4" parent="." unique_id=1518363591 instance=ExtResource("10_n00kc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -14)
+
+[node name="Nahual5" parent="." unique_id=2035740696 instance=ExtResource("10_n00kc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -14)
+
+[node name="Nahual6" parent="." unique_id=26589062 instance=ExtResource("10_n00kc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 6)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2071759805]
+environment = SubResource("Environment_tmy65")
+
+[node name="Luces" type="Node3D" parent="." unique_id=144371634]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Luces" unique_id=528748145]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 3.5, 8)
+light_color = Color(0.8784314, 0.627451, 0.22745098, 1)
+light_energy = 4.0
+omni_range = 16.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Luces" unique_id=1077167948]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 3.5, 8)
+light_color = Color(0.8784314, 0.627451, 0.22745098, 1)
+light_energy = 4.0
+omni_range = 16.0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Luces" unique_id=144794539]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 5, 6)
+light_color = Color(0.8784314, 0.627451, 0.22745098, 1)
+light_energy = 4.0
+omni_range = 16.0
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Luces" unique_id=1531415423]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 5, 6)
+light_color = Color(0.8784314, 0.627451, 0.22745098, 1)
+light_energy = 4.0
+omni_range = 16.0
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="Luces" unique_id=1266964594]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 3.5, 24)
+light_color = Color(0.8784314, 0.627451, 0.22745098, 1)
+light_energy = 4.0
+omni_range = 16.0
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="Luces" unique_id=113325696]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 3.5, 24)
+light_color = Color(0.8784314, 0.627451, 0.22745098, 1)
+light_energy = 4.0
+omni_range = 16.0
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="Luces" unique_id=1143424541]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 4, 22)
+light_color = Color(0.8784314, 0.627451, 0.22745098, 1)
+light_energy = 4.0
+omni_range = 16.0
+
+[node name="OmniLight3D8" type="OmniLight3D" parent="Luces" unique_id=840948672]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 3.5, -14)
+light_color = Color(0.8784314, 0.627451, 0.22745098, 1)
+light_energy = 4.0
+omni_range = 16.0
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="Luces" unique_id=399321673]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 3.5, -14)
+light_color = Color(0.8784314, 0.627451, 0.22745098, 1)
+light_energy = 4.0
+omni_range = 16.0
+
+[node name="OmniLight3D10" type="OmniLight3D" parent="Luces" unique_id=1669190739]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 4, -14)
+light_color = Color(0.8784314, 0.627451, 0.22745098, 1)
+light_energy = 4.0
+omni_range = 16.0
+
+[node name="OmniLight3D11" type="OmniLight3D" parent="Luces" unique_id=1384963026]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.5, 3.5, -18)
+light_color = Color(0.8784314, 0.627451, 0.22745098, 1)
+light_energy = 4.0
+omni_range = 16.0
+
+[node name="OmniLight3D12" type="OmniLight3D" parent="Luces" unique_id=1211575318]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 3.5, -22)
+light_color = Color(0.8784314, 0.627451, 0.22745098, 1)
+light_energy = 4.0
+omni_range = 16.0
+
+[node name="OmniLight3D13" type="OmniLight3D" parent="Luces" unique_id=1029100291]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 4, 4)
+light_color = Color(0.8784314, 0.627451, 0.22745098, 1)
+light_energy = 4.0
+omni_range = 16.0
+
+[node name="OmniLight3D14" type="OmniLight3D" parent="Luces" unique_id=1217548568]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 5, 4)
+light_color = Color(0.8784314, 0.627451, 0.22745098, 1)
+light_energy = 4.0
+omni_range = 16.0
+
+[node name="Agua" type="Node3D" parent="." unique_id=2017868398]
+
+[node name="Inundado" type="Area3D" parent="Agua" unique_id=766161329]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 6)
+script = ExtResource("11_4xigu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Agua/Inundado" unique_id=1283506566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+shape = SubResource("BoxShape3D_cg5ca")
+
+[node name="Superficie" type="MeshInstance3D" parent="Agua/Inundado" unique_id=799420757]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+material_override = ExtResource("12_h7mt2")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_0l8vp")
+
+[node name="Sonido" type="AudioStreamPlayer3D" parent="Agua/Inundado" unique_id=802253437]
+stream = ExtResource("13_h7mt2")
+volume_db = -6.0
+unit_size = 18.0
+autoplay = true
+bus = &"Ambiente"
+
+[node name="Agua2" type="Node3D" parent="." unique_id=952295743]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.5, 0, -18)
+
+[node name="Inundado" type="Area3D" parent="Agua2" unique_id=1442524587]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.025, 0, 0)
+script = ExtResource("11_4xigu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Agua2/Inundado" unique_id=999505418]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+shape = SubResource("BoxShape3D_cg8h7")
+
+[node name="Superficie" type="MeshInstance3D" parent="Agua2/Inundado" unique_id=953971425]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+material_override = ExtResource("12_h7mt2")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_cg8h7")
+
+[node name="Sonido" type="AudioStreamPlayer3D" parent="Agua2/Inundado" unique_id=546988525]
+stream = ExtResource("13_h7mt2")
+volume_db = -6.0
+unit_size = 18.0
+autoplay = true
+bus = &"Ambiente"
