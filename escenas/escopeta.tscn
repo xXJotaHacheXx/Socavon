@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://d23j6e8qx4j0a"]
+
+[ext_resource type="Script" uid="uid://uoyinyifn60" path="res://scripts/escopeta.gd" id="1_y8far"]
+[ext_resource type="AudioStream" uid="uid://d0delw41w6rmq" path="res://assets/audio/cartuchos.wav" id="2_mj3u4"]
+[ext_resource type="Texture2D" uid="uid://cdwoh75hxokrp" path="res://assets/armas/escopeta_suelo.png" id="2_yfjhy"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cg8h7"]
+radius = 1.0
+
+[node name="Escopeta" type="Area3D" unique_id=1343720183]
+script = ExtResource("1_y8far")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=171120553]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+shape = SubResource("SphereShape3D_cg8h7")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=553232166]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
+pixel_size = 0.028
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_yfjhy")
+
+[node name="Sonido" type="AudioStreamPlayer3D" parent="." unique_id=1771903483]
+stream = ExtResource("2_mj3u4")
+bus = &"SFX"

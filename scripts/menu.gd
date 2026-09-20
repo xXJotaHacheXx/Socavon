@@ -63,6 +63,7 @@ func _jugar(n: int) -> void:
 
 func _nueva() -> void:
 	Progreso.empezar_de_cero()
+	Partida.limpiar_arsenal()
 	_jugar(1)
 
 

@@ -11,6 +11,10 @@ var secretos_encontrados := 0
 var tiempo := 0.0
 var tiempo_par := 300.0
 var nivel_activo := false
+var arsenal_guardado := false
+var arsenal_escopeta := false
+var arsenal_balas := 0
+var arsenal_postas := 0
 var fichas: Array[String] = []
 
 
@@ -71,3 +75,17 @@ func terminar_nivel() -> void:
 		"tiempo": tiempo,
 		"par": tiempo_par,
 	})
+
+
+func guardar_arsenal(escopeta: bool, balas: int, postas: int) -> void:
+	arsenal_guardado = true
+	arsenal_escopeta = escopeta
+	arsenal_balas = balas
+	arsenal_postas = postas
+
+
+func limpiar_arsenal() -> void:
+	arsenal_guardado = false
+	arsenal_escopeta = false
+	arsenal_balas = 0
+	arsenal_postas = 0

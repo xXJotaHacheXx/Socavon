@@ -11,3 +11,7 @@ func _ready() -> void:
 
 func _al_terminar(_datos: Dictionary) -> void:
 	Progreso.completar(numero)
+
+	var arma := get_tree().get_first_node_in_group("arma")
+	if arma != null:
+		Partida.guardar_arsenal(arma.tiene_escopeta, arma.municion, arma.cartuchos)

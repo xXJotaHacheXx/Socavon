@@ -15,16 +15,19 @@ const COBRE := Color(0.77, 0.27, 0.12)
 @onready var armadura: Label = $Placa/Stats/Armadura/Valor
 @onready var municion: Label = $Placa/Stats/Municion/Valor
 
+@onready var titulo_municion: Label = $Placa/Stats/Municion/Titulo
+
 
 func _ready() -> void:
+	arma.arma_cambiada.connect(_al_cambiar_arma)
 	jugador.salud_cambiada.connect(_al_cambiar_salud)
 	jugador.armadura_cambiada.connect(_al_cambiar_armadura)
 	arma.municion_cambiada.connect(_al_cambiar_municion)
 
 	_al_cambiar_salud(jugador.vida_maxima, jugador.vida_maxima)
 	_al_cambiar_armadura(jugador.armadura_inicial)
-	_al_cambiar_municion(arma.municion_maxima, arma.municion_maxima)
-	
+	arma.anunciar()
+
 	Partida.ficha_obtenida.connect(_encender_ficha)
 	Partida.aviso.connect(mostrar_aviso)
 
@@ -68,3 +71,7 @@ func mostrar_aviso(texto: String) -> void:
 	var t := create_tween()
 	t.tween_interval(1.4)
 	t.tween_property(aviso, "modulate:a", 0.0, 0.5)
+
+
+func _al_cambiar_arma(_indice: int, nombre: String) -> void:
+	titulo_municion.text = nombre

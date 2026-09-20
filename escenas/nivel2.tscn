@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dfu2856kqg0nw" path="res://scripts/nivel.gd" id="1_7h3xd"]
 [ext_resource type="Material" uid="uid://dm8vtpic13w2w" path="res://assets/mina.tres" id="2_ho4ip"]
 [ext_resource type="PackedScene" uid="uid://bj7n5u2bfpyiq" path="res://escenas/jugador.tscn" id="3_tmy65"]
+[ext_resource type="PackedScene" uid="uid://d23j6e8qx4j0a" path="res://escenas/escopeta.tscn" id="4_0l8vp"]
 [ext_resource type="PackedScene" uid="uid://hv2muokpk4v" path="res://escenas/ficha.tscn" id="4_vh1yy"]
 [ext_resource type="PackedScene" uid="uid://he53hi2i6bkt" path="res://escenas/puerta.tscn" id="5_4xigu"]
 [ext_resource type="PackedScene" uid="uid://d2iorb2hpjgbo" path="res://escenas/secreto.tscn" id="6_h7mt2"]
@@ -13,6 +14,7 @@
 [ext_resource type="Script" uid="uid://cby5tn0yc7ktb" path="res://scripts/agua.gd" id="11_4xigu"]
 [ext_resource type="Material" uid="uid://du43m6l8ehqvr" path="res://assets/agua.tres" id="12_h7mt2"]
 [ext_resource type="AudioStream" uid="uid://ccgocldvxofth" path="res://assets/audio/agua_loop.wav" id="13_h7mt2"]
+[ext_resource type="PackedScene" uid="uid://cblw4w3d67khd" path="res://escenas/cartuchos.tscn" id="15_0nril"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_cg8h7"]
 vertices = PackedVector3Array(-55, 9, -32, -55, 9, 31, 56, 9, 31, 56, 9, -32, 11.25, 0.5, -17, 13, 0.5, -17, 13.25, 0.5, -18.5, 11, 0.5, -18.5, 15.5, 0.5, -25.25, 8.75, 0.5, -25.25, 15.5, 0.5, -18.5, 8.75, 0.5, -18.5, -45.5, 0.5, -16.75, -43.75, 0.5, -17, -44, 0.5, -18.75, -45.5, 0.5, -19, -53.25, 0.5, -22.25, -53.25, 0.5, -13.5, -45.5, 0.5, -22.25, -45.5, 0.5, -13.5, -42.75, 0.5, -18.75, -42.25, 0.5, -16.75, -42.25, 0.5, -7.5, -25.5, 0.5, -7.5, -25.5, 0.5, -12.25, -42.25, 0.5, -20.25, -25.5, 0.5, -15.5, -25.5, 0.5, -20.25, -23.5, 0.5, -12.5, -23.5, 0.5, -15.25, 11.25, 0.5, -15.75, 13.25, 0.5, -15.25, -6.5, 0.5, -12.25, 21.5, 0.5, -12.5, 10.75, 0.5, -15.25, -6.75, 0.5, -15.25, 21.5, 0.5, -15.25, -9.5, 0.5, -12.5, -9.25, 0.5, -8.5, -6.5, 0.5, -8.25, -9.25, 0.5, -6.75, -6.25, 0.5, -6.25, -14.25, 0.5, 12.75, -9.5, 0.5, 18.5, -6.25, 0.5, 18.5, -9.75, 0.5, -6.25, -14.25, 0.5, 3.25, -9.25, 0.5, 20.5, -6.5, 0.5, 20.5, -14.25, 0.5, -6.25, -14.25, 0.5, 18.5, -14.75, 0.5, 3.75, -16.5, 0.5, 3.75, -16.25, 0.5, 12.5, 18.5, 0.5, 18.5, 18.5, 0.5, -6.25, 42.5, 0.5, 5.25, 44, 0.5, 5, 44, 0.5, 3.25, 42.5, 0.5, 3, 35.25, 0.5, 11.5, 33, 0.5, 11.5, 33.25, 0.5, 13.5, 35, 0.5, 13.5, 42.5, 0.5, -3.25, 29.75, 0.5, -3.25, 29.75, 0.5, 11.5, 42.5, 0.5, 11.5, 45.25, 0.5, 3.25, 45.75, 0.5, 5.25, 45.75, 0.5, 10.5, 54.5, 0.5, 10.5, 45.75, 0.5, 2.75, 54.5, 0.5, -2.25, 45.75, 0.5, -2.25, -35.5, 0.5, 9, -35.5, 0.5, 7.25, -37.5, 0.5, 7, -37.5, 0.5, 9.25, -50.25, 0.5, 2.75, -50.25, 0.5, 13.5, -37.5, 0.5, 2.75, -37.5, 0.5, 13.5, -25.25, 0.5, 3.75, -25.25, 0.5, 6.75, -25.5, 0.5, 9, -25.25, 0.5, 12.5, -25.75, 0.5, 7.25, 33.25, 0.5, 15.25, 35.25, 0.5, 15.75, 32.75, 0.5, 15.75, 24.75, 0.5, 15.75, 24.75, 0.5, 22.25, 24.25, 0.5, 22.75, 22.5, 0.5, 22.75, 22.75, 0.5, 25.5, 24.75, 0.5, 25.75, 43.5, 0.5, 28.5, 43.5, 0.5, 15.75, 24.75, 0.5, 28.5, -9.25, 0.5, 22.25, -6.5, 0.5, 22.5, -9.75, 0.5, 22.75, -17.25, 0.5, 22.75, -17.25, 0.5, 25.5, -5, 0.5, 25.5, -4.75, 0.5, 22.75)
@@ -176,6 +178,9 @@ material = ExtResource("2_ho4ip")
 
 [node name="Jugador" parent="." unique_id=567177567 instance=ExtResource("3_tmy65")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -46, 1, 8)
+
+[node name="Escopeta" parent="." unique_id=1343720183 instance=ExtResource("4_0l8vp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -3)
 
 [node name="Ficha" parent="." unique_id=2067859008 instance=ExtResource("4_vh1yy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 22)
@@ -379,3 +384,30 @@ volume_db = -6.0
 unit_size = 18.0
 autoplay = true
 bus = &"Ambiente"
+
+[node name="Cartuchos" parent="." unique_id=1512460160 instance=ExtResource("15_0nril")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, 11)
+
+[node name="Cartuchos2" parent="." unique_id=494472758 instance=ExtResource("15_0nril")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 24)
+
+[node name="Cartuchos3" parent="." unique_id=555401965 instance=ExtResource("15_0nril")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 0, -18)
+
+[node name="Cartuchos4" parent="." unique_id=339431680 instance=ExtResource("15_0nril")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 8)
+
+[node name="Cartuchos5" parent="." unique_id=480909054 instance=ExtResource("15_0nril")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, -10)
+tipo = 1
+cantidad = 4
+
+[node name="Cartuchos6" parent="." unique_id=1241584049 instance=ExtResource("15_0nril")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 26)
+tipo = 1
+cantidad = 4
+
+[node name="Cartuchos7" parent="." unique_id=1649713057 instance=ExtResource("15_0nril")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, -1)
+tipo = 1
+cantidad = 4
