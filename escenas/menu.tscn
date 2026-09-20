@@ -4,6 +4,30 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vdanu"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjfif"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.07058824, 0.050980393, 0.03529412, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.41960785, 0.35686275, 0.2901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_as36m"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.07058824, 0.050980393, 0.03529412, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.41960785, 0.35686275, 0.2901961, 1)
+
 [node name="Menu" type="Control" unique_id=1729665656]
 layout_mode = 3
 anchors_preset = 15
@@ -59,6 +83,24 @@ theme_override_font_sizes/font_size = 20
 text = "NUEVA PARTIDA"
 flat = true
 
+[node name="Continuar" type="Button" parent="Centro" unique_id=680882613]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6039216, 0.5254902, 0.44705883, 1)
+theme_override_colors/font_focus_color = Color(0.9098039, 0.8627451, 0.7921569, 1)
+theme_override_colors/font_hover_color = Color(0.9098039, 0.8627451, 0.7921569, 1)
+theme_override_font_sizes/font_size = 20
+text = "CONTINUAR"
+flat = true
+
+[node name="Niveles" type="Button" parent="Centro" unique_id=1126156572]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6039216, 0.5254902, 0.44705883, 1)
+theme_override_colors/font_focus_color = Color(0.9098039, 0.8627451, 0.7921569, 1)
+theme_override_colors/font_hover_color = Color(0.9098039, 0.8627451, 0.7921569, 1)
+theme_override_font_sizes/font_size = 20
+text = "NIVELES"
+flat = true
+
 [node name="Controles" type="Button" parent="Centro" unique_id=704005837]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.6039216, 0.5254902, 0.44705883, 1)
@@ -78,6 +120,17 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_vdanu")
 text = "SALIR"
 flat = true
 
+[node name="Velo" type="ColorRect" parent="." unique_id=1095991668]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.74509805)
+
 [node name="PanelControles" type="PanelContainer" parent="." unique_id=1679084821]
 visible = false
 layout_mode = 1
@@ -92,6 +145,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gjfif")
 
 [node name="Texto" type="Label" parent="PanelControles" unique_id=1687306744]
 layout_mode = 2
@@ -103,6 +157,63 @@ SHIFT · CORRER
 ESC · PAUSA"
 horizontal_alignment = 1
 
-[connection signal="pressed" from="Centro/Nueva" to="." method="_on_nueva_pressed"]
-[connection signal="pressed" from="Centro/Controles" to="." method="_on_controles_pressed"]
-[connection signal="pressed" from="Centro/Salir" to="." method="_on_salir_pressed"]
+[node name="PanelNiveles" type="PanelContainer" parent="." unique_id=1733163149]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_as36m")
+
+[node name="Lista" type="VBoxContainer" parent="PanelNiveles" unique_id=777173610]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="PanelNiveles/Lista" unique_id=1178018597]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "SELECCIÓN DE NIVEL"
+
+[node name="Nivel1" type="Button" parent="PanelNiveles/Lista" unique_id=1566239511]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+flat = true
+alignment = 0
+
+[node name="Nivel2" type="Button" parent="PanelNiveles/Lista" unique_id=1765395284]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+flat = true
+alignment = 0
+
+[node name="Nivel3" type="Button" parent="PanelNiveles/Lista" unique_id=932633116]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+flat = true
+alignment = 0
+
+[node name="Nivel4" type="Button" parent="PanelNiveles/Lista" unique_id=1835016454]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+flat = true
+alignment = 0
+
+[node name="Cerrar" type="Button" parent="PanelNiveles/Lista" unique_id=733433973]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "VOLVER"
+flat = true
+alignment = 0

@@ -23,6 +23,7 @@ buses/default_bus_layout="uid://bafmaiwvomtm6"
 
 Partida="*uid://bcn8kx1c3o0sl"
 Pausa="*uid://c6xg4coolatba"
+Progreso="*uid://pu4c7mqg0ueh"
 
 [display]
 

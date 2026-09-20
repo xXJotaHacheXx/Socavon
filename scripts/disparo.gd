@@ -51,3 +51,11 @@ func _disparar() -> void:
 
 	await get_tree().create_timer(cadencia - 0.05).timeout
 	listo = true
+
+
+func recargar(cantidad: int) -> bool:
+	if municion >= municion_maxima:
+		return false
+	municion = min(municion + cantidad, municion_maxima)
+	municion_cambiada.emit(municion, municion_maxima)
+	return true

@@ -31,10 +31,16 @@ func _mostrar(datos: Dictionary) -> void:
 
 
 func _unhandled_input(evento: InputEvent) -> void:
-	if visible and evento.is_action_pressed("ui_accept"):
-		get_tree().paused = false
-		Partida.reiniciar()
-		get_tree().reload_current_scene()
+	if not visible or not evento.is_action_pressed("ui_accept"):
+		return
+
+	get_tree().paused = false
+	Partida.reiniciar()
+
+	if Progreso.existe(Progreso.ultimo):
+		get_tree().change_scene_to_file(Progreso.ruta(Progreso.ultimo))
+	else:
+		get_tree().change_scene_to_file("res://escenas/menu.tscn")
 
 
 func _porcentaje(parte: int, total: int) -> int:

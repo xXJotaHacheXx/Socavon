@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cblw4w3d67khd"]
+
+[ext_resource type="AudioStream" uid="uid://d0delw41w6rmq" path="res://assets/audio/cartuchos.wav" id="1_nnjhn"]
+[ext_resource type="Script" uid="uid://door0nuojjom6" path="res://scripts/cartuchos.gd" id="1_u181d"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cg8h7"]
+radius = 0.9
+
+[sub_resource type="BoxMesh" id="BoxMesh_whjgx"]
+size = Vector3(0.45, 0.28, 0.3)
+
+[node name="Cartuchos" type="Area3D" unique_id=1512460160]
+script = ExtResource("1_u181d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=221223645]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("SphereShape3D_cg8h7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=947746646]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_whjgx")
+
+[node name="Sonido" type="AudioStreamPlayer3D" parent="." unique_id=276535937]
+stream = ExtResource("1_nnjhn")
+bus = &"SFX"
