@@ -39,7 +39,7 @@ navigation_mesh = SubResource("NavigationMesh_udv6t")
 use_collision = true
 
 [node name="Roca" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=889590046]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.5, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.86901855, 1.5, -0.5)
 size = Vector3(112, 14, 64)
 material = ExtResource("2_orta5")
 

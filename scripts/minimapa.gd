@@ -16,6 +16,7 @@ func _ready() -> void:
 func _recolectar() -> void:
 	var mina := get_tree().get_first_node_in_group("mina")
 	if mina == null:
+		push_warning("Minimapa: no hay ningún nodo en el grupo 'mina'. Márcalo en el CSGCombiner3D del nivel.")
 		return
 
 	for hijo in mina.get_children():

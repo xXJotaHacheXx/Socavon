@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://da4w0dajovkwy"]
+
+[ext_resource type="Script" uid="uid://bfgk6mt1kb5xv" path="res://scripts/nahual.gd" id="1_ygepc"]
+[ext_resource type="Texture2D" uid="uid://1syi0ho0rulp" path="res://assets/nahual.png" id="2_tbaa5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cg8h7"]
+radius = 0.45
+height = 1.1
+
+[node name="Nahual" type="CharacterBody3D" unique_id=1066758173 groups=["enemigos"]]
+script = ExtResource("1_ygepc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1028749252]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
+shape = SubResource("CapsuleShape3D_cg8h7")
+
+[node name="Cuerpo" type="Sprite3D" parent="." unique_id=1141321938]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+pixel_size = 0.045
+billboard = 2
+shaded = true
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_tbaa5")
+hframes = 8
+vframes = 8
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1577971917]
+
+[node name="Voz" type="AudioStreamPlayer3D" parent="." unique_id=723039713]
+unit_size = 12.0
+bus = &"SFX"
