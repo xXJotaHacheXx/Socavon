@@ -1,0 +1,379 @@
+[gd_scene format=3 uid="uid://cxifsyc2tphlq"]
+
+[ext_resource type="Script" uid="uid://dfu2856kqg0nw" path="res://scripts/nivel.gd" id="1_pioqr"]
+[ext_resource type="PackedScene" uid="uid://bj7n5u2bfpyiq" path="res://escenas/jugador.tscn" id="2_ev36u"]
+[ext_resource type="Material" uid="uid://dm8vtpic13w2w" path="res://assets/mina.tres" id="2_vq7wq"]
+[ext_resource type="PackedScene" uid="uid://ca8yqdhup3np0" path="res://escenas/elevador.tscn" id="3_e4ahp"]
+[ext_resource type="Script" uid="uid://bp8c8r8ysbfw3" path="res://scripts/colada.gd" id="3_w6eyx"]
+[ext_resource type="PackedScene" uid="uid://dv1wmm5w7chbp" path="res://escenas/fin_nivel.tscn" id="4_kxlwm"]
+[ext_resource type="Material" uid="uid://cmhqfoibcd30o" path="res://assets/colada.tres" id="4_s5ixl"]
+[ext_resource type="PackedScene" uid="uid://he53hi2i6bkt" path="res://escenas/puerta.tscn" id="5_rpq36"]
+[ext_resource type="PackedScene" uid="uid://hv2muokpk4v" path="res://escenas/ficha.tscn" id="9_ml56j"]
+[ext_resource type="PackedScene" uid="uid://d2iorb2hpjgbo" path="res://escenas/secreto.tscn" id="10_3l2ns"]
+[ext_resource type="PackedScene" uid="uid://ptbu42m5anjk" path="res://escenas/barretero.tscn" id="11_ow8mk"]
+[ext_resource type="PackedScene" uid="uid://da4w0dajovkwy" path="res://escenas/nahual.tscn" id="12_wae10"]
+[ext_resource type="PackedScene" uid="uid://dp7nlb3dfhoc1" path="res://escenas/escupefuego.tscn" id="13_2efy5"]
+[ext_resource type="PackedScene" uid="uid://cblw4w3d67khd" path="res://escenas/cartuchos.tscn" id="14_tapek"]
+
+[sub_resource type="Environment" id="Environment_pioqr"]
+background_mode = 1
+ambient_light_source = 2
+ambient_light_color = Color(0.16862746, 0.101960786, 0.0627451, 1)
+ambient_light_energy = 0.18
+fog_enabled = true
+fog_light_color = Color(0.22745098, 0.101960786, 0.047058824, 1)
+fog_density = 0.045
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_w6eyx"]
+vertices = PackedVector3Array(-57.5, 11.5, -33.5, -57.5, 11.5, 33.5, 59.5, 11.5, 33.5, 59.5, 11.5, -33.5, 46.5, 0.5, -24.75, 48, 0.5, -25, 48, 0.5, -26.75, 46.5, 0.5, -27, 37, 0.5, -20.25, 46.5, 0.5, -20.5, 35.25, 0.5, -11.5, 37, 0.5, -11.25, 35.25, 0.5, -20.25, 46.5, 0.5, -31.25, 29.75, 0.5, -31.25, 29.75, 0.5, -20.5, -0.75, 0.5, -11.5, 1, 0.5, -11.5, 1, 0.5, -13.25, -1, 0.5, -13.5, 2.5, 0.5, -30.25, -26.25, 0.5, -30.25, -23.75, 0.5, -13.5, -25.75, 0.5, -13.25, -25.75, 0.5, -11.5, -24, 0.5, -11.5, 2.5, 0.5, -13.5, -26.25, 0.5, -13.5, 49.25, 0.5, -26.75, 49.75, 0.5, -24.75, 49.75, 0.5, -21.5, 56.5, 0.5, -21.5, 49.75, 0.5, -27.25, 56.5, 0.5, -30.25, 49.75, 0.5, -30.25, -32.75, 0.5, -0.75, -34.5, 0.5, -0.75, -34.25, 0.5, 1, -32.25, 0.5, 1.25, -26.25, 0.5, -7.25, -32.25, 0.5, -7.25, -32.25, 0.5, -1.25, -25.75, 0.5, -7.75, -23.75, 0.5, -7.25, -17.25, 0.5, -0.75, -17.5, 0.5, -7.25, -25.75, 0.5, 14.5, -24, 0.5, 14.75, -24, 0.5, 7.75, -25.75, 0.5, 7.75, -17.5, 0.5, 7.5, -17.25, 0.5, 1, -10.25, 0.5, 1, -10.5, 0.5, -0.75, -32.25, 0.5, 7.5, -8.75, 0.5, -0.75, -8.25, 0.5, 1.25, 20.5, 0.5, 1.25, 20.5, 0.5, -1, 1.25, 0.5, -6.25, -6.75, 0.5, 6.75, -6.75, 0.5, 8.5, -5, 0.5, 8.5, -4.75, 0.5, 6.5, -1.25, 0.5, -6.25, -8.25, 0.5, -6.25, -8.25, 0.5, -1.25, 22.5, 0.5, 1, 22.5, 0.5, -0.75, 20.5, 0.5, 6.5, -8.25, 0.5, 6.5, -0.75, 0.5, -6.75, 20.5, 0.5, -6.25, 35.25, 0.5, -9.75, 37.25, 0.5, -9.25, 37.25, 0.5, 9.5, 44.5, 0.5, 9.5, 44.5, 0.5, 1.25, 34.75, 0.5, -9.25, 27.75, 0.5, -1.25, 35, 0.5, 9.5, 35.25, 0.5, 11.5, 37, 0.5, 11.5, 27.75, 0.5, 1.25, 46.5, 0.5, 1, 46.5, 0.5, -0.75, 44.5, 0.5, -1, 44.5, 0.5, -9.25, 27.25, 0.5, -0.75, 27.75, 0.5, -9.25, 27.75, 0.5, 9.5, -41.25, 0.5, 1, -41.25, 0.5, -0.75, -41.5, 0.5, 6.5, -41.5, 0.5, -6.25, -54.25, 0.5, -6.25, -54.25, 0.5, 6.5, 48.25, 0.5, -0.75, 48.75, 0.5, 1.25, 48.75, 0.5, 6.5, 55.5, 0.5, 6.5, 48.75, 0.5, -1.25, 55.5, 0.5, -6.25, 48.75, 0.5, -6.25, -25.75, 0.5, 16.25, -23.75, 0.5, 16.75, -5, 0.5, 16.5, -6.75, 0.5, 16.25, -7.25, 0.5, 16.75, -3.5, 0.5, 31.5, -3.5, 0.5, 16.75, -28.75, 0.5, 23.25, -30.5, 0.5, 23.25, -30.25, 0.5, 25, -28.25, 0.5, 25.25, -28.25, 0.5, 31.5, -28.25, 0.5, 22.75, -26.25, 0.5, 16.75, -28.25, 0.5, 16.75, 35.25, 0.5, 20.25, 37.25, 0.5, 20.75, 47.5, 0.5, 31.5, 47.5, 0.5, 20.75, 28.75, 0.5, 31.5, 34.75, 0.5, 20.75, 28.75, 0.5, 20.75, -33.5, 0.5, 25.25, -33.5, 0.5, 23, -42.25, 0.5, 19.75, -42.25, 0.5, 28.5, -33.5, 0.5, 19.75, -33.5, 0.5, 28.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(4, 9, 8), PackedInt32Array(12, 8, 10), PackedInt32Array(10, 8, 11), PackedInt32Array(12, 15, 8), PackedInt32Array(8, 15, 14), PackedInt32Array(8, 14, 7), PackedInt32Array(7, 14, 13), PackedInt32Array(7, 4, 8), PackedInt32Array(17, 16, 18), PackedInt32Array(18, 16, 19), PackedInt32Array(22, 21, 19), PackedInt32Array(19, 21, 20), PackedInt32Array(24, 23, 25), PackedInt32Array(25, 23, 22), PackedInt32Array(18, 19, 26), PackedInt32Array(26, 19, 20), PackedInt32Array(23, 27, 22), PackedInt32Array(22, 27, 21), PackedInt32Array(6, 28, 5), PackedInt32Array(5, 28, 29), PackedInt32Array(31, 30, 29), PackedInt32Array(28, 32, 29), PackedInt32Array(29, 32, 33), PackedInt32Array(29, 33, 31), PackedInt32Array(32, 34, 33), PackedInt32Array(36, 35, 37), PackedInt32Array(37, 35, 38), PackedInt32Array(41, 40, 39), PackedInt32Array(38, 35, 41), PackedInt32Array(24, 25, 42), PackedInt32Array(42, 25, 43), PackedInt32Array(43, 45, 44), PackedInt32Array(39, 42, 43), PackedInt32Array(49, 48, 46), PackedInt32Array(46, 48, 47), PackedInt32Array(41, 43, 38), PackedInt32Array(38, 43, 44), PackedInt32Array(38, 44, 48), PackedInt32Array(48, 44, 50), PackedInt32Array(44, 53, 51), PackedInt32Array(51, 53, 52), PackedInt32Array(41, 39, 43), PackedInt32Array(49, 54, 48), PackedInt32Array(48, 54, 38), PackedInt32Array(44, 51, 50), PackedInt32Array(53, 55, 52), PackedInt32Array(52, 55, 56), PackedInt32Array(59, 58, 57), PackedInt32Array(61, 60, 62), PackedInt32Array(62, 60, 63), PackedInt32Array(66, 65, 64), PackedInt32Array(55, 66, 56), PackedInt32Array(56, 66, 63), PackedInt32Array(67, 57, 68), PackedInt32Array(68, 57, 58), PackedInt32Array(64, 59, 66), PackedInt32Array(66, 59, 63), PackedInt32Array(63, 59, 57), PackedInt32Array(63, 57, 69), PackedInt32Array(60, 70, 63), PackedInt32Array(63, 70, 56), PackedInt32Array(16, 17, 71), PackedInt32Array(71, 17, 59), PackedInt32Array(59, 72, 58), PackedInt32Array(64, 71, 59), PackedInt32Array(10, 11, 73), PackedInt32Array(73, 11, 74), PackedInt32Array(77, 76, 75), PackedInt32Array(73, 74, 78), PackedInt32Array(78, 74, 79), PackedInt32Array(81, 80, 82), PackedInt32Array(82, 80, 75), PackedInt32Array(75, 80, 83), PackedInt32Array(84, 77, 85), PackedInt32Array(85, 77, 86), PackedInt32Array(74, 87, 86), PackedInt32Array(68, 88, 67), PackedInt32Array(67, 88, 83), PackedInt32Array(77, 75, 86), PackedInt32Array(86, 75, 83), PackedInt32Array(86, 83, 79), PackedInt32Array(86, 79, 74), PackedInt32Array(83, 88, 79), PackedInt32Array(79, 89, 78), PackedInt32Array(80, 90, 83), PackedInt32Array(92, 36, 91), PackedInt32Array(91, 36, 37), PackedInt32Array(91, 93, 92), PackedInt32Array(92, 93, 94), PackedInt32Array(94, 93, 96), PackedInt32Array(94, 96, 95), PackedInt32Array(85, 97, 84), PackedInt32Array(84, 97, 98), PackedInt32Array(100, 99, 98), PackedInt32Array(97, 101, 98), PackedInt32Array(98, 101, 102), PackedInt32Array(98, 102, 100), PackedInt32Array(101, 103, 102), PackedInt32Array(46, 47, 104), PackedInt32Array(104, 47, 105), PackedInt32Array(107, 106, 108), PackedInt32Array(108, 106, 110), PackedInt32Array(108, 110, 109), PackedInt32Array(112, 111, 113), PackedInt32Array(113, 111, 114), PackedInt32Array(114, 105, 115), PackedInt32Array(115, 105, 108), PackedInt32Array(115, 108, 109), PackedInt32Array(114, 111, 116), PackedInt32Array(104, 105, 117), PackedInt32Array(117, 105, 116), PackedInt32Array(116, 105, 114), PackedInt32Array(116, 118, 117), PackedInt32Array(61, 62, 107), PackedInt32Array(107, 62, 106), PackedInt32Array(81, 82, 119), PackedInt32Array(119, 82, 120), PackedInt32Array(122, 121, 120), PackedInt32Array(120, 121, 123), PackedInt32Array(119, 120, 124), PackedInt32Array(124, 120, 123), PackedInt32Array(123, 125, 124), PackedInt32Array(112, 113, 127), PackedInt32Array(127, 113, 126), PackedInt32Array(126, 129, 127), PackedInt32Array(127, 129, 128), PackedInt32Array(128, 130, 127), PackedInt32Array(126, 131, 129)]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cg8h7"]
+size = Vector3(14, 1, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cg8h7"]
+size = Vector3(14, 0.3, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_whjgx"]
+size = Vector3(10, 1, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_whjgx"]
+size = Vector3(10, 0.3, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_asci1"]
+size = Vector3(18, 1, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_asci1"]
+size = Vector3(18, 0.3, 3)
+
+[node name="Nivel3" type="Node3D" unique_id=819965313]
+script = ExtResource("1_pioqr")
+numero = 3
+tiempo_par = 420.0
+
+[node name="Jugador" parent="." unique_id=567177567 instance=ExtResource("2_ev36u")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -48, 1, 0)
+
+[node name="Elevador" parent="." unique_id=699436407 instance=ExtResource("3_e4ahp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52, 0, 0)
+
+[node name="FinNivel" parent="." unique_id=561494145 instance=ExtResource("4_kxlwm")]
+scale = Vector2(0, 0)
+transform = Transform2D(0, 0, 0, 1, 0, 0)
+
+[node name="Puerta" parent="." unique_id=476976444 instance=ExtResource("5_rpq36")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 24, 0, 0)
+
+[node name="Puerta2" parent="." unique_id=1540204933 instance=ExtResource("5_rpq36")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 45.5, 0, 0)
+ficha_requerida = "cobre"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1088091440]
+environment = SubResource("Environment_pioqr")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=87251409]
+navigation_mesh = SubResource("NavigationMesh_w6eyx")
+
+[node name="Mina" type="CSGCombiner3D" parent="NavigationRegion3D" unique_id=616158231 groups=["mina"]]
+use_collision = true
+
+[node name="Roca" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=1456400970]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2.5, 0)
+size = Vector3(118, 17, 68)
+material = ExtResource("2_vq7wq")
+
+[node name="Recepcion" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=1044393571]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48, 3, 0)
+operation = 2
+size = Vector3(14, 6, 14)
+material = ExtResource("2_vq7wq")
+
+[node name="TunelCarga" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=1109105197]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 1.6, 0)
+operation = 2
+size = Vector3(8, 3.2, 3)
+material = ExtResource("2_vq7wq")
+
+[node name="Tolvas" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=539360580]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 3.5, 0)
+operation = 2
+size = Vector3(16, 7, 16)
+material = ExtResource("2_vq7wq")
+
+[node name="TunelHornos" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=1325574988]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 1.6, 13)
+operation = 2
+size = Vector3(3, 3.2, 10)
+material = ExtResource("2_vq7wq")
+
+[node name="Hornos" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=437077248]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 4, 24)
+operation = 2
+size = Vector3(26, 8, 16)
+material = ExtResource("2_vq7wq")
+
+[node name="TunelEscoria" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=1233035965]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 1.5, 24)
+operation = 2
+size = Vector3(4, 3, 3)
+material = ExtResource("2_vq7wq")
+
+[node name="Escoria" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=1124278765]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 2.25, 24)
+operation = 2
+size = Vector3(10, 4.5, 10)
+material = ExtResource("2_vq7wq")
+
+[node name="TunelColada" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=324337438]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 1.6, -13)
+operation = 2
+size = Vector3(3, 3.2, 10)
+material = ExtResource("2_vq7wq")
+
+[node name="Colada" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=1610329698]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 3.5, -22)
+operation = 2
+size = Vector3(30, 7, 18)
+material = ExtResource("2_vq7wq")
+
+[node name="TunelNave" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=503093568]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 1.6, 0)
+operation = 2
+size = Vector3(8, 3.2, 3)
+material = ExtResource("2_vq7wq")
+
+[node name="NaveCentral" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=500870220]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 3.75, 0)
+operation = 2
+size = Vector3(30, 7.5, 14)
+material = ExtResource("2_vq7wq")
+
+[node name="TunelHornosNave" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=224253393]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.6, 11.5)
+operation = 2
+size = Vector3(3, 3.2, 9)
+material = ExtResource("2_vq7wq")
+
+[node name="TunelColadaNave" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=519093810]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, -10)
+operation = 2
+size = Vector3(3, 3.2, 6)
+material = ExtResource("2_vq7wq")
+
+[node name="TunelEste" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=517770283]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 1.6, 0)
+operation = 2
+size = Vector3(6, 3.2, 3)
+material = ExtResource("2_vq7wq")
+
+[node name="Moldes" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=556759521]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 3.25, 0)
+operation = 2
+size = Vector3(18, 6.5, 20)
+material = ExtResource("2_vq7wq")
+
+[node name="TunelFuelles" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=2034334111]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 1.6, 15)
+operation = 2
+size = Vector3(3, 3.2, 10)
+material = ExtResource("2_vq7wq")
+
+[node name="Fuelles" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=88613074]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 3, 26)
+operation = 2
+size = Vector3(20, 6, 12)
+material = ExtResource("2_vq7wq")
+
+[node name="TunelChimenea" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=190824805]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 1.6, -15)
+operation = 2
+size = Vector3(3, 3.2, 10)
+material = ExtResource("2_vq7wq")
+
+[node name="Chimenea" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=1242672311]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 4.5, -26)
+operation = 2
+size = Vector3(18, 9, 12)
+material = ExtResource("2_vq7wq")
+
+[node name="TunelCeniza" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=1376550713]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 1.5, -26)
+operation = 2
+size = Vector3(6, 3, 3)
+material = ExtResource("2_vq7wq")
+
+[node name="Ceniza" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=1781699823]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 2.25, -26)
+operation = 2
+size = Vector3(8, 4.5, 10)
+material = ExtResource("2_vq7wq")
+
+[node name="TunelSalida" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=2043545660]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.5, 1.6, 0)
+operation = 2
+size = Vector3(5, 3.2, 3)
+material = ExtResource("2_vq7wq")
+
+[node name="Lingotera" type="CSGBox3D" parent="NavigationRegion3D/Mina" unique_id=411070862]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52, 3, 0)
+operation = 2
+size = Vector3(8, 6, 14)
+material = ExtResource("2_vq7wq")
+
+[node name="Coladas" type="Node3D" parent="." unique_id=1927436038]
+
+[node name="Canal1" type="Area3D" parent="Coladas" unique_id=865898340]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -22)
+script = ExtResource("3_w6eyx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Coladas/Canal1" unique_id=1311689317]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_cg8h7")
+
+[node name="Superficie" type="MeshInstance3D" parent="Coladas/Canal1" unique_id=1421573847]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+material_override = ExtResource("4_s5ixl")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_cg8h7")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Coladas/Canal1" unique_id=1415713829]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+light_color = Color(1, 0.47843137, 0.1254902, 1)
+light_energy = 2.0
+omni_range = 10.0
+
+[node name="Canal2" type="Area3D" parent="Coladas" unique_id=155905228]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -26)
+script = ExtResource("3_w6eyx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Coladas/Canal2" unique_id=1682175061]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_whjgx")
+
+[node name="Superficie" type="MeshInstance3D" parent="Coladas/Canal2" unique_id=1311647667]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+material_override = ExtResource("4_s5ixl")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_whjgx")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Coladas/Canal2" unique_id=748959420]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35, 0)
+light_color = Color(1, 0.47843137, 0.1254902, 1)
+light_energy = 2.0
+omni_range = 10.0
+
+[node name="Crisol" type="Area3D" parent="Coladas" unique_id=1278290570]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 29.5)
+script = ExtResource("3_w6eyx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Coladas/Crisol" unique_id=901295404]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_asci1")
+
+[node name="Superficie" type="MeshInstance3D" parent="Coladas/Crisol" unique_id=358009159]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+material_override = ExtResource("4_s5ixl")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_asci1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Coladas/Crisol" unique_id=1385730374]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35, 0)
+light_color = Color(1, 0.47843137, 0.1254902, 1)
+light_energy = 2.0
+omni_range = 10.0
+
+[node name="Ficha" parent="." unique_id=2067859008 instance=ExtResource("9_ml56j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 20)
+
+[node name="Ficha2" parent="." unique_id=1293364418 instance=ExtResource("9_ml56j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -17)
+tipo = "cobre"
+
+[node name="Secreto" parent="." unique_id=1935161900 instance=ExtResource("10_3l2ns")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, 24)
+
+[node name="Secreto2" parent="." unique_id=1272660597 instance=ExtResource("10_3l2ns")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 0, -26)
+
+[node name="Barretero" parent="." unique_id=1066758173 instance=ExtResource("11_ow8mk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 0, -3)
+
+[node name="Barretero2" parent="." unique_id=169804122 instance=ExtResource("11_ow8mk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22025251, 7.748604e-07, -2.10901)
+
+[node name="Barretero3" parent="." unique_id=1808013485 instance=ExtResource("11_ow8mk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, -5)
+
+[node name="Barretero4" parent="." unique_id=679354401 instance=ExtResource("11_ow8mk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 27)
+
+[node name="Barretero5" parent="." unique_id=1038850417 instance=ExtResource("11_ow8mk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -28)
+
+[node name="Barretero6" parent="." unique_id=719685849 instance=ExtResource("11_ow8mk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 6)
+
+[node name="Nahual" parent="." unique_id=1754728849 instance=ExtResource("12_wae10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, 21)
+
+[node name="Nahual2" parent="." unique_id=1103003941 instance=ExtResource("12_wae10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 26)
+
+[node name="Nahual3" parent="." unique_id=1500506197 instance=ExtResource("12_wae10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -18)
+
+[node name="Nahual4" parent="." unique_id=2000954335 instance=ExtResource("12_wae10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -4)
+
+[node name="Nahual5" parent="." unique_id=2075955593 instance=ExtResource("12_wae10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41, 0, -6)
+
+[node name="Escupefuego" parent="." unique_id=1152656171 instance=ExtResource("13_2efy5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 26)
+
+[node name="Escupefuego2" parent="." unique_id=1362342868 instance=ExtResource("13_2efy5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, -27)
+
+[node name="Escupefuego3" parent="." unique_id=1621360225 instance=ExtResource("13_2efy5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 4)
+
+[node name="Escupefuego4" parent="." unique_id=876610484 instance=ExtResource("13_2efy5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0, 29)
+
+[node name="Escupefuego5" parent="." unique_id=287681070 instance=ExtResource("13_2efy5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0, -29)
+
+[node name="Cartuchos" parent="." unique_id=1512460160 instance=ExtResource("14_tapek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, -4)
+
+[node name="Cartuchos2" parent="." unique_id=1664475037 instance=ExtResource("14_tapek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 0, -5)
+
+[node name="Cartuchos3" parent="." unique_id=756287417 instance=ExtResource("14_tapek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 22)
+
+[node name="Cartuchos4" parent="." unique_id=641011123 instance=ExtResource("14_tapek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 4)
+
+[node name="Cartuchos5" parent="." unique_id=1272619955 instance=ExtResource("14_tapek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0, -7)
+
+[node name="Cartuchos6" parent="." unique_id=283124578 instance=ExtResource("14_tapek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 0, 18)
+tipo = 1
+cantidad = 4
+
+[node name="Cartuchos7" parent="." unique_id=208805413 instance=ExtResource("14_tapek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -16)
+tipo = 1
+cantidad = 4
+
+[node name="Cartuchos8" parent="." unique_id=1010193445 instance=ExtResource("14_tapek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -4)
+tipo = 1
+cantidad = 4
+
+[node name="Cartuchos9" parent="." unique_id=652631819 instance=ExtResource("14_tapek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43, 0, 22)
+tipo = 1
+cantidad = 4

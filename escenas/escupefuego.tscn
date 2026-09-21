@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dp7nlb3dfhoc1"]
+
+[ext_resource type="Script" uid="uid://luutqt53d6kd" path="res://scripts/escupefuego.gd" id="1_tp1v5"]
+[ext_resource type="Texture2D" uid="uid://cvgmho8t6qx4l" path="res://assets/escupefuego.png" id="2_2p60j"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cg8h7"]
+radius = 0.7
+height = 1.8
+
+[node name="Escupefuego" type="CharacterBody3D" unique_id=1152656171 groups=["enemigos"]]
+script = ExtResource("1_tp1v5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2043176950]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_cg8h7")
+
+[node name="Cuerpo" type="Sprite3D" parent="." unique_id=463761657]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+pixel_size = 0.042
+billboard = 2
+shaded = true
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_2p60j")
+hframes = 8
+vframes = 8
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=2012564107]
+
+[node name="Voz" type="AudioStreamPlayer3D" parent="." unique_id=880847494]
+unit_size = 16.0
+bus = &"SFX"
+
+[node name="Boca" type="Marker3D" parent="." unique_id=2058054199]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -0.7)
+
+[node name="Brasa" type="OmniLight3D" parent="." unique_id=138833145]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, -0.3)
+light_color = Color(1, 0.47843137, 0.1254902, 1)
+light_energy = 1.2
+omni_range = 4.0

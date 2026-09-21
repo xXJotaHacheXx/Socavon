@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://btyeeeaesiqj5"]
+
+[ext_resource type="Script" uid="uid://cdtapk1dnoepd" path="res://scripts/bola.gd" id="1_3j1tb"]
+[ext_resource type="Texture2D" uid="uid://cic7ykwuysdp4" path="res://assets/bola.png" id="2_44y0c"]
+[ext_resource type="AudioStream" uid="uid://cof8wgtamj4dq" path="res://assets/audio/bola_golpe.wav" id="3_rhyw3"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cg8h7"]
+radius = 0.35
+
+[node name="Bola" type="Area3D" unique_id=1536356077]
+script = ExtResource("1_3j1tb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=533283177]
+shape = SubResource("SphereShape3D_cg8h7")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1560945940]
+pixel_size = 0.035
+billboard = 1
+shaded = true
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_44y0c")
+hframes = 4
+
+[node name="Luz" type="OmniLight3D" parent="." unique_id=1753181117]
+light_color = Color(1, 0.5411765, 0.18039216, 1)
+light_energy = 2.5
+omni_range = 6.0
+
+[node name="Sonido" type="AudioStreamPlayer3D" parent="." unique_id=383096283]
+stream = ExtResource("3_rhyw3")
+unit_size = 14.0
+bus = &"SFX"
