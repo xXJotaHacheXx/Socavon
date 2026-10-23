@@ -295,9 +295,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, 24)
 [node name="Secreto2" parent="." unique_id=1272660597 instance=ExtResource("10_3l2ns")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 0, -26)
 
-[node name="Barretero" parent="." unique_id=1066758173 instance=ExtResource("11_ow8mk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 0, -3)
-
 [node name="Barretero2" parent="." unique_id=169804122 instance=ExtResource("11_ow8mk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22025251, 7.748604e-07, -2.10901)
 
@@ -377,3 +374,101 @@ cantidad = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43, 0, 22)
 tipo = 1
 cantidad = 4
+
+[node name="Luces" type="Node3D" parent="." unique_id=790904408]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Luces" unique_id=2123768123]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48, 3.6, 0)
+light_color = Color(1, 0.6901961, 0.4392157, 1)
+light_energy = 4.0
+omni_range = 16.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Luces" unique_id=1500781739]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 4.2, 0)
+light_color = Color(1, 0.6901961, 0.4392157, 1)
+light_energy = 4.0
+omni_range = 16.0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Luces" unique_id=1405042439]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 1.9, 13)
+light_color = Color(1, 0.6901961, 0.4392157, 1)
+light_energy = 4.0
+omni_range = 16.0
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Luces" unique_id=1312367884]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 4.8, 22)
+light_color = Color(1, 0.6901961, 0.4392157, 1)
+light_energy = 4.0
+omni_range = 16.0
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="Luces" unique_id=1923958581]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 4.8, 22)
+light_color = Color(1, 0.6901961, 0.4392157, 1)
+light_energy = 4.0
+omni_range = 16.0
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="Luces" unique_id=889117812]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 2.7, 24)
+light_color = Color(1, 0.6901961, 0.4392157, 1)
+light_energy = 4.0
+omni_range = 16.0
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="Luces" unique_id=2054500191]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 1.9, -13)
+light_color = Color(1, 0.6901961, 0.4392157, 1)
+light_energy = 4.0
+omni_range = 16.0
+
+[node name="OmniLight3D8" type="OmniLight3D" parent="Luces" unique_id=1767131137]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 4.2, -16)
+light_color = Color(1, 0.6901961, 0.4392157, 1)
+light_energy = 4.0
+omni_range = 16.0
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="Luces" unique_id=192579646]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 4.2, -18)
+light_color = Color(1, 0.6901961, 0.4392157, 1)
+light_energy = 4.0
+omni_range = 16.0
+
+[node name="OmniLight3D10" type="OmniLight3D" parent="Luces" unique_id=626762018]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 4.5, 0)
+light_color = Color(1, 0.6901961, 0.4392157, 1)
+light_energy = 4.0
+omni_range = 16.0
+
+[node name="OmniLight3D11" type="OmniLight3D" parent="Luces" unique_id=1558810213]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 4.5, 0)
+light_color = Color(1, 0.6901961, 0.4392157, 1)
+light_energy = 4.0
+omni_range = 16.0
+
+[node name="OmniLight3D12" type="OmniLight3D" parent="Luces" unique_id=1087642044]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 3.9, 0)
+light_color = Color(1, 0.6901961, 0.4392157, 1)
+light_energy = 4.0
+omni_range = 16.0
+
+[node name="OmniLight3D13" type="OmniLight3D" parent="Luces" unique_id=1043348106]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 3.6, 26)
+light_color = Color(1, 0.6901961, 0.4392157, 1)
+light_energy = 4.0
+omni_range = 16.0
+
+[node name="OmniLight3D14" type="OmniLight3D" parent="Luces" unique_id=1692794021]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 5.4, -26)
+light_color = Color(1, 0.6901961, 0.4392157, 1)
+light_energy = 4.0
+omni_range = 16.0
+
+[node name="OmniLight3D15" type="OmniLight3D" parent="Luces" unique_id=2045631309]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 2.7, -26)
+light_color = Color(1, 0.6901961, 0.4392157, 1)
+light_energy = 4.0
+omni_range = 16.0
+
+[node name="OmniLight3D16" type="OmniLight3D" parent="Luces" unique_id=614773770]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52, 3.6, 0)
+light_color = Color(1, 0.6901961, 0.4392157, 1)
+light_energy = 4.0
+omni_range = 16.0
