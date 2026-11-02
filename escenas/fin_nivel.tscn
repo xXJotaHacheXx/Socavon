@@ -4,6 +4,7 @@
 
 [node name="FinNivel" type="CanvasLayer" unique_id=561494145]
 process_mode = 2
+layer = 20
 script = ExtResource("1_uensm")
 
 [node name="Fondo" type="ColorRect" parent="." unique_id=1389869614]

@@ -4,6 +4,7 @@
 
 [node name="Pausa" type="CanvasLayer" unique_id=1428577229]
 process_mode = 3
+layer = 10
 script = ExtResource("1_ety1p")
 
 [node name="Fondo" type="ColorRect" parent="." unique_id=1028088787]
