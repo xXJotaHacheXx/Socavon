@@ -356,7 +356,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 4)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0, -7)
 
 [node name="Cartuchos6" parent="." unique_id=283124578 instance=ExtResource("14_tapek")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 0, 18)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, 18)
 tipo = 1
 cantidad = 4
 
